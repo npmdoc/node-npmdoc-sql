@@ -1,0 +1,5188 @@
+<html><head></head><body><div class="apidocDiv">
+<style>
+/*csslint
+*/
+.apidocDiv {
+    background: #fff;
+    font-family: Arial, Helvetica, sans-serif;
+}
+.apidocDiv a[href] {
+    color: #33f;
+    font-weight: bold;
+    text-decoration: none;
+}
+.apidocDiv a[href]:hover {
+    text-decoration: underline;
+}
+.apidocCodeCommentSpan {
+    background: #bbf;
+    color: #000;
+    display: block;
+}
+.apidocCodeKeywordSpan {
+    color: #d00;
+    font-weight: bold;
+}
+.apidocCodePre {
+    background: #eef;
+    border: 1px solid;
+    color: #777;
+    padding: 5px;
+    white-space: pre-wrap;
+}
+.apidocFooterDiv {
+    margin-top: 20px;
+    text-align: center;
+}
+.apidocModuleLi {
+    margin-top: 10px;
+}
+.apidocSectionDiv {
+    border-top: 1px solid;
+    margin-top: 20px;
+}
+.apidocSignatureSpan {
+    color: #777;
+    font-weight: bold;
+}
+</style>
+<h1>api documentation for
+    <a href="https://github.com/brianc/node-sql">sql (v0.75.0)</a>
+</h1>
+<h4>sql builder</h4>
+<div class="apidocSectionDiv"><a href="#apidoc.tableOfContents" id="apidoc.tableOfContents"><h1>table of contents</h1></a><ol>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.sql">module sql</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.sql.Sql">
+            function <span class="apidocSignatureSpan">sql.</span>Sql
+            <span class="apidocSignatureSpan">(dialect, config)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.sql.Table">
+            function <span class="apidocSignatureSpan">sql.</span>Table
+            <span class="apidocSignatureSpan">(config)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.sql.create">
+            function <span class="apidocSignatureSpan">sql.</span>create
+            <span class="apidocSignatureSpan">(dialect, config)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.sql.dialect">
+            function <span class="apidocSignatureSpan">sql.</span>dialect
+            <span class="apidocSignatureSpan">(config)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">sql.</span>Sql.prototype</span>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">sql.</span>Table.prototype</span>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">sql.</span>config</span>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">sql.</span>dialect.prototype</span>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">sql.</span>functions</span>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">string <span class="apidocSignatureSpan">sql.</span>dialectName</span>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.sql.Sql">module sql.Sql</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.sql.Sql.Sql">
+            function <span class="apidocSignatureSpan">sql.</span>Sql
+            <span class="apidocSignatureSpan">(dialect, config)</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.sql.Sql.prototype">module sql.Sql.prototype</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.sql.Sql.prototype.array">
+            function <span class="apidocSignatureSpan">sql.Sql.prototype.</span>array
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.sql.Sql.prototype.constant">
+            function <span class="apidocSignatureSpan">sql.Sql.prototype.</span>constant
+            <span class="apidocSignatureSpan">(value)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.sql.Sql.prototype.define">
+            function <span class="apidocSignatureSpan">sql.Sql.prototype.</span>define
+            <span class="apidocSignatureSpan">(def)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.sql.Sql.prototype.functionCallCreator">
+            function <span class="apidocSignatureSpan">sql.Sql.prototype.</span>functionCallCreator
+            <span class="apidocSignatureSpan">(name)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.sql.Sql.prototype.interval">
+            function <span class="apidocSignatureSpan">sql.Sql.prototype.</span>interval
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.sql.Sql.prototype.select">
+            function <span class="apidocSignatureSpan">sql.Sql.prototype.</span>select
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.sql.Sql.prototype.setDialect">
+            function <span class="apidocSignatureSpan">sql.Sql.prototype.</span>setDialect
+            <span class="apidocSignatureSpan">(dialect, config)</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.sql.Table">module sql.Table</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.sql.Table.Table">
+            function <span class="apidocSignatureSpan">sql.</span>Table
+            <span class="apidocSignatureSpan">(config)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.sql.Table.define">
+            function <span class="apidocSignatureSpan">sql.Table.</span>define
+            <span class="apidocSignatureSpan">(config)</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.sql.Table.prototype">module sql.Table.prototype</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.sql.Table.prototype.addColumn">
+            function <span class="apidocSignatureSpan">sql.Table.prototype.</span>addColumn
+            <span class="apidocSignatureSpan">(col, options)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.sql.Table.prototype.alter">
+            function <span class="apidocSignatureSpan">sql.Table.prototype.</span>alter
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.sql.Table.prototype.and">
+            function <span class="apidocSignatureSpan">sql.Table.prototype.</span>and
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.sql.Table.prototype.as">
+            function <span class="apidocSignatureSpan">sql.Table.prototype.</span>as
+            <span class="apidocSignatureSpan">(alias)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.sql.Table.prototype.clone">
+            function <span class="apidocSignatureSpan">sql.Table.prototype.</span>clone
+            <span class="apidocSignatureSpan">(config)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.sql.Table.prototype.count">
+            function <span class="apidocSignatureSpan">sql.Table.prototype.</span>count
+            <span class="apidocSignatureSpan">(alias)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.sql.Table.prototype.create">
+            function <span class="apidocSignatureSpan">sql.Table.prototype.</span>create
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.sql.Table.prototype.createColumn">
+            function <span class="apidocSignatureSpan">sql.Table.prototype.</span>createColumn
+            <span class="apidocSignatureSpan">(col)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.sql.Table.prototype.delete">
+            function <span class="apidocSignatureSpan">sql.Table.prototype.</span>delete
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.sql.Table.prototype.drop">
+            function <span class="apidocSignatureSpan">sql.Table.prototype.</span>drop
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.sql.Table.prototype.from">
+            function <span class="apidocSignatureSpan">sql.Table.prototype.</span>from
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.sql.Table.prototype.get">
+            function <span class="apidocSignatureSpan">sql.Table.prototype.</span>get
+            <span class="apidocSignatureSpan">(colName)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.sql.Table.prototype.getColumn">
+            function <span class="apidocSignatureSpan">sql.Table.prototype.</span>getColumn
+            <span class="apidocSignatureSpan">(colName)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.sql.Table.prototype.getName">
+            function <span class="apidocSignatureSpan">sql.Table.prototype.</span>getName
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.sql.Table.prototype.getSchema">
+            function <span class="apidocSignatureSpan">sql.Table.prototype.</span>getSchema
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.sql.Table.prototype.hasColumn">
+            function <span class="apidocSignatureSpan">sql.Table.prototype.</span>hasColumn
+            <span class="apidocSignatureSpan">(col)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.sql.Table.prototype.indexes">
+            function <span class="apidocSignatureSpan">sql.Table.prototype.</span>indexes
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.sql.Table.prototype.insert">
+            function <span class="apidocSignatureSpan">sql.Table.prototype.</span>insert
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.sql.Table.prototype.join">
+            function <span class="apidocSignatureSpan">sql.Table.prototype.</span>join
+            <span class="apidocSignatureSpan">(other)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.sql.Table.prototype.joinTo">
+            function <span class="apidocSignatureSpan">sql.Table.prototype.</span>joinTo
+            <span class="apidocSignatureSpan">(other)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.sql.Table.prototype.leftJoin">
+            function <span class="apidocSignatureSpan">sql.Table.prototype.</span>leftJoin
+            <span class="apidocSignatureSpan">(other)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.sql.Table.prototype.limit">
+            function <span class="apidocSignatureSpan">sql.Table.prototype.</span>limit
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.sql.Table.prototype.literal">
+            function <span class="apidocSignatureSpan">sql.Table.prototype.</span>literal
+            <span class="apidocSignatureSpan">(literal)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.sql.Table.prototype.offset">
+            function <span class="apidocSignatureSpan">sql.Table.prototype.</span>offset
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.sql.Table.prototype.or">
+            function <span class="apidocSignatureSpan">sql.Table.prototype.</span>or
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.sql.Table.prototype.order">
+            function <span class="apidocSignatureSpan">sql.Table.prototype.</span>order
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.sql.Table.prototype.select">
+            function <span class="apidocSignatureSpan">sql.Table.prototype.</span>select
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.sql.Table.prototype.setSchema">
+            function <span class="apidocSignatureSpan">sql.Table.prototype.</span>setSchema
+            <span class="apidocSignatureSpan">(schema)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.sql.Table.prototype.star">
+            function <span class="apidocSignatureSpan">sql.Table.prototype.</span>star
+            <span class="apidocSignatureSpan">(options)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.sql.Table.prototype.subQuery">
+            function <span class="apidocSignatureSpan">sql.Table.prototype.</span>subQuery
+            <span class="apidocSignatureSpan">(alias)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.sql.Table.prototype.toNode">
+            function <span class="apidocSignatureSpan">sql.Table.prototype.</span>toNode
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.sql.Table.prototype.truncate">
+            function <span class="apidocSignatureSpan">sql.Table.prototype.</span>truncate
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.sql.Table.prototype.update">
+            function <span class="apidocSignatureSpan">sql.Table.prototype.</span>update
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.sql.Table.prototype.where">
+            function <span class="apidocSignatureSpan">sql.Table.prototype.</span>where
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">sql.Table.prototype.</span>nodes</span>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.sql.dialect">module sql.dialect</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.sql.dialect.dialect">
+            function <span class="apidocSignatureSpan">sql.</span>dialect
+            <span class="apidocSignatureSpan">(config)</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.sql.dialect.prototype">module sql.dialect.prototype</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.sql.dialect.prototype._getParameterPlaceholder">
+            function <span class="apidocSignatureSpan">sql.dialect.prototype.</span>_getParameterPlaceholder
+            <span class="apidocSignatureSpan">(index, value)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.sql.dialect.prototype._getParameterText">
+            function <span class="apidocSignatureSpan">sql.dialect.prototype.</span>_getParameterText
+            <span class="apidocSignatureSpan">(index, value)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.sql.dialect.prototype._getParameterValue">
+            function <span class="apidocSignatureSpan">sql.dialect.prototype.</span>_getParameterValue
+            <span class="apidocSignatureSpan">(value, quoteChar)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.sql.dialect.prototype._myClass">
+            function <span class="apidocSignatureSpan">sql.dialect.prototype.</span>_myClass
+            <span class="apidocSignatureSpan">(config)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.sql.dialect.prototype.findNode">
+            function <span class="apidocSignatureSpan">sql.dialect.prototype.</span>findNode
+            <span class="apidocSignatureSpan">(list, type)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.sql.dialect.prototype.getQuery">
+            function <span class="apidocSignatureSpan">sql.dialect.prototype.</span>getQuery
+            <span class="apidocSignatureSpan">(queryNode)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.sql.dialect.prototype.getString">
+            function <span class="apidocSignatureSpan">sql.dialect.prototype.</span>getString
+            <span class="apidocSignatureSpan">(queryNode)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.sql.dialect.prototype.handleDistinct">
+            function <span class="apidocSignatureSpan">sql.dialect.prototype.</span>handleDistinct
+            <span class="apidocSignatureSpan">(actions, filters)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.sql.dialect.prototype.quote">
+            function <span class="apidocSignatureSpan">sql.dialect.prototype.</span>quote
+            <span class="apidocSignatureSpan">(word, quoteCharacter)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.sql.dialect.prototype.visit">
+            function <span class="apidocSignatureSpan">sql.dialect.prototype.</span>visit
+            <span class="apidocSignatureSpan">(node)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.sql.dialect.prototype.visitAddColumn">
+            function <span class="apidocSignatureSpan">sql.dialect.prototype.</span>visitAddColumn
+            <span class="apidocSignatureSpan">(addColumn)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.sql.dialect.prototype.visitAlias">
+            function <span class="apidocSignatureSpan">sql.dialect.prototype.</span>visitAlias
+            <span class="apidocSignatureSpan">(alias)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.sql.dialect.prototype.visitAlter">
+            function <span class="apidocSignatureSpan">sql.dialect.prototype.</span>visitAlter
+            <span class="apidocSignatureSpan">(alter)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.sql.dialect.prototype.visitArrayCall">
+            function <span class="apidocSignatureSpan">sql.dialect.prototype.</span>visitArrayCall
+            <span class="apidocSignatureSpan">(arrayCall)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.sql.dialect.prototype.visitAt">
+            function <span class="apidocSignatureSpan">sql.dialect.prototype.</span>visitAt
+            <span class="apidocSignatureSpan">(at)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.sql.dialect.prototype.visitBinary">
+            function <span class="apidocSignatureSpan">sql.dialect.prototype.</span>visitBinary
+            <span class="apidocSignatureSpan">(binary)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.sql.dialect.prototype.visitCascade">
+            function <span class="apidocSignatureSpan">sql.dialect.prototype.</span>visitCascade
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.sql.dialect.prototype.visitCase">
+            function <span class="apidocSignatureSpan">sql.dialect.prototype.</span>visitCase
+            <span class="apidocSignatureSpan">(caseExp)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.sql.dialect.prototype.visitCast">
+            function <span class="apidocSignatureSpan">sql.dialect.prototype.</span>visitCast
+            <span class="apidocSignatureSpan">(cast)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.sql.dialect.prototype.visitColumn">
+            function <span class="apidocSignatureSpan">sql.dialect.prototype.</span>visitColumn
+            <span class="apidocSignatureSpan">(columnNode)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.sql.dialect.prototype.visitContainedBy">
+            function <span class="apidocSignatureSpan">sql.dialect.prototype.</span>visitContainedBy
+            <span class="apidocSignatureSpan">(containedBy)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.sql.dialect.prototype.visitContains">
+            function <span class="apidocSignatureSpan">sql.dialect.prototype.</span>visitContains
+            <span class="apidocSignatureSpan">(contains)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.sql.dialect.prototype.visitCreate">
+            function <span class="apidocSignatureSpan">sql.dialect.prototype.</span>visitCreate
+            <span class="apidocSignatureSpan">(create)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.sql.dialect.prototype.visitCreateIndex">
+            function <span class="apidocSignatureSpan">sql.dialect.prototype.</span>visitCreateIndex
+            <span class="apidocSignatureSpan">(node)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.sql.dialect.prototype.visitCreateView">
+            function <span class="apidocSignatureSpan">sql.dialect.prototype.</span>visitCreateView
+            <span class="apidocSignatureSpan">(createView)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.sql.dialect.prototype.visitDefault">
+            function <span class="apidocSignatureSpan">sql.dialect.prototype.</span>visitDefault
+            <span class="apidocSignatureSpan">(parameter)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.sql.dialect.prototype.visitDelete">
+            function <span class="apidocSignatureSpan">sql.dialect.prototype.</span>visitDelete
+            <span class="apidocSignatureSpan">(del)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.sql.dialect.prototype.visitDistinct">
+            function <span class="apidocSignatureSpan">sql.dialect.prototype.</span>visitDistinct
+            <span class="apidocSignatureSpan">(truncate)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.sql.dialect.prototype.visitDistinctOn">
+            function <span class="apidocSignatureSpan">sql.dialect.prototype.</span>visitDistinctOn
+            <span class="apidocSignatureSpan">(distinctOn)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.sql.dialect.prototype.visitDrop">
+            function <span class="apidocSignatureSpan">sql.dialect.prototype.</span>visitDrop
+            <span class="apidocSignatureSpan">(drop)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.sql.dialect.prototype.visitDropColumn">
+            function <span class="apidocSignatureSpan">sql.dialect.prototype.</span>visitDropColumn
+            <span class="apidocSignatureSpan">(dropColumn)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.sql.dialect.prototype.visitDropIndex">
+            function <span class="apidocSignatureSpan">sql.dialect.prototype.</span>visitDropIndex
+            <span class="apidocSignatureSpan">(node)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.sql.dialect.prototype.visitForShare">
+            function <span class="apidocSignatureSpan">sql.dialect.prototype.</span>visitForShare
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.sql.dialect.prototype.visitForUpdate">
+            function <span class="apidocSignatureSpan">sql.dialect.prototype.</span>visitForUpdate
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.sql.dialect.prototype.visitForeignKey">
+            function <span class="apidocSignatureSpan">sql.dialect.prototype.</span>visitForeignKey
+            <span class="apidocSignatureSpan">(foreignKeyNode)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.sql.dialect.prototype.visitFrom">
+            function <span class="apidocSignatureSpan">sql.dialect.prototype.</span>visitFrom
+            <span class="apidocSignatureSpan">(from)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.sql.dialect.prototype.visitFunctionCall">
+            function <span class="apidocSignatureSpan">sql.dialect.prototype.</span>visitFunctionCall
+            <span class="apidocSignatureSpan">(functionCall)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.sql.dialect.prototype.visitGroupBy">
+            function <span class="apidocSignatureSpan">sql.dialect.prototype.</span>visitGroupBy
+            <span class="apidocSignatureSpan">(groupBy)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.sql.dialect.prototype.visitHaving">
+            function <span class="apidocSignatureSpan">sql.dialect.prototype.</span>visitHaving
+            <span class="apidocSignatureSpan">(having)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.sql.dialect.prototype.visitIfExists">
+            function <span class="apidocSignatureSpan">sql.dialect.prototype.</span>visitIfExists
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.sql.dialect.prototype.visitIfNotExists">
+            function <span class="apidocSignatureSpan">sql.dialect.prototype.</span>visitIfNotExists
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.sql.dialect.prototype.visitIn">
+            function <span class="apidocSignatureSpan">sql.dialect.prototype.</span>visitIn
+            <span class="apidocSignatureSpan">(binary)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.sql.dialect.prototype.visitIndexes">
+            function <span class="apidocSignatureSpan">sql.dialect.prototype.</span>visitIndexes
+            <span class="apidocSignatureSpan">(node)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.sql.dialect.prototype.visitInsert">
+            function <span class="apidocSignatureSpan">sql.dialect.prototype.</span>visitInsert
+            <span class="apidocSignatureSpan">(insert)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.sql.dialect.prototype.visitInterval">
+            function <span class="apidocSignatureSpan">sql.dialect.prototype.</span>visitInterval
+            <span class="apidocSignatureSpan">(interval)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.sql.dialect.prototype.visitJoin">
+            function <span class="apidocSignatureSpan">sql.dialect.prototype.</span>visitJoin
+            <span class="apidocSignatureSpan">(join)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.sql.dialect.prototype.visitLiteral">
+            function <span class="apidocSignatureSpan">sql.dialect.prototype.</span>visitLiteral
+            <span class="apidocSignatureSpan">(node)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.sql.dialect.prototype.visitModifier">
+            function <span class="apidocSignatureSpan">sql.dialect.prototype.</span>visitModifier
+            <span class="apidocSignatureSpan">(node)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.sql.dialect.prototype.visitNotIn">
+            function <span class="apidocSignatureSpan">sql.dialect.prototype.</span>visitNotIn
+            <span class="apidocSignatureSpan">(binary)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.sql.dialect.prototype.visitOnConflict">
+            function <span class="apidocSignatureSpan">sql.dialect.prototype.</span>visitOnConflict
+            <span class="apidocSignatureSpan">(onConflict)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.sql.dialect.prototype.visitOnDuplicate">
+            function <span class="apidocSignatureSpan">sql.dialect.prototype.</span>visitOnDuplicate
+            <span class="apidocSignatureSpan">(onDuplicate)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.sql.dialect.prototype.visitOrIgnore">
+            function <span class="apidocSignatureSpan">sql.dialect.prototype.</span>visitOrIgnore
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.sql.dialect.prototype.visitOrderBy">
+            function <span class="apidocSignatureSpan">sql.dialect.prototype.</span>visitOrderBy
+            <span class="apidocSignatureSpan">(orderBy)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.sql.dialect.prototype.visitOrderByValue">
+            function <span class="apidocSignatureSpan">sql.dialect.prototype.</span>visitOrderByValue
+            <span class="apidocSignatureSpan">(orderByValue)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.sql.dialect.prototype.visitOverlap">
+            function <span class="apidocSignatureSpan">sql.dialect.prototype.</span>visitOverlap
+            <span class="apidocSignatureSpan">(overlap)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.sql.dialect.prototype.visitParameter">
+            function <span class="apidocSignatureSpan">sql.dialect.prototype.</span>visitParameter
+            <span class="apidocSignatureSpan">(parameter)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.sql.dialect.prototype.visitPostfixUnary">
+            function <span class="apidocSignatureSpan">sql.dialect.prototype.</span>visitPostfixUnary
+            <span class="apidocSignatureSpan">(unary)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.sql.dialect.prototype.visitPrefixUnary">
+            function <span class="apidocSignatureSpan">sql.dialect.prototype.</span>visitPrefixUnary
+            <span class="apidocSignatureSpan">(unary)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.sql.dialect.prototype.visitQuery">
+            function <span class="apidocSignatureSpan">sql.dialect.prototype.</span>visitQuery
+            <span class="apidocSignatureSpan">(queryNode)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.sql.dialect.prototype.visitQueryHelper">
+            function <span class="apidocSignatureSpan">sql.dialect.prototype.</span>visitQueryHelper
+            <span class="apidocSignatureSpan">(actions, targets, filters)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.sql.dialect.prototype.visitRename">
+            function <span class="apidocSignatureSpan">sql.dialect.prototype.</span>visitRename
+            <span class="apidocSignatureSpan">(rename)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.sql.dialect.prototype.visitRenameColumn">
+            function <span class="apidocSignatureSpan">sql.dialect.prototype.</span>visitRenameColumn
+            <span class="apidocSignatureSpan">(renameColumn)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.sql.dialect.prototype.visitRestrict">
+            function <span class="apidocSignatureSpan">sql.dialect.prototype.</span>visitRestrict
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.sql.dialect.prototype.visitReturning">
+            function <span class="apidocSignatureSpan">sql.dialect.prototype.</span>visitReturning
+            <span class="apidocSignatureSpan">(returning)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.sql.dialect.prototype.visitSelect">
+            function <span class="apidocSignatureSpan">sql.dialect.prototype.</span>visitSelect
+            <span class="apidocSignatureSpan">(select)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.sql.dialect.prototype.visitSlice">
+            function <span class="apidocSignatureSpan">sql.dialect.prototype.</span>visitSlice
+            <span class="apidocSignatureSpan">(slice)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.sql.dialect.prototype.visitSubquery">
+            function <span class="apidocSignatureSpan">sql.dialect.prototype.</span>visitSubquery
+            <span class="apidocSignatureSpan">(queryNode, dontParenthesize)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.sql.dialect.prototype.visitTable">
+            function <span class="apidocSignatureSpan">sql.dialect.prototype.</span>visitTable
+            <span class="apidocSignatureSpan">(tableNode)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.sql.dialect.prototype.visitTernary">
+            function <span class="apidocSignatureSpan">sql.dialect.prototype.</span>visitTernary
+            <span class="apidocSignatureSpan">(ternary)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.sql.dialect.prototype.visitTruncate">
+            function <span class="apidocSignatureSpan">sql.dialect.prototype.</span>visitTruncate
+            <span class="apidocSignatureSpan">(truncate)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.sql.dialect.prototype.visitUpdate">
+            function <span class="apidocSignatureSpan">sql.dialect.prototype.</span>visitUpdate
+            <span class="apidocSignatureSpan">(update)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.sql.dialect.prototype.visitWhere">
+            function <span class="apidocSignatureSpan">sql.dialect.prototype.</span>visitWhere
+            <span class="apidocSignatureSpan">(where)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">string <span class="apidocSignatureSpan">sql.dialect.prototype.</span>_aliasText</span>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">string <span class="apidocSignatureSpan">sql.dialect.prototype.</span>_arrayAggFunctionName</span>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">string <span class="apidocSignatureSpan">sql.dialect.prototype.</span>_quoteCharacter</span>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.sql.functions">module sql.functions</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.sql.functions.ABS">
+            function <span class="apidocSignatureSpan">sql.functions.</span>ABS
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.sql.functions.AVG">
+            function <span class="apidocSignatureSpan">sql.functions.</span>AVG
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.sql.functions.COALESCE">
+            function <span class="apidocSignatureSpan">sql.functions.</span>COALESCE
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.sql.functions.COUNT">
+            function <span class="apidocSignatureSpan">sql.functions.</span>COUNT
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.sql.functions.CURRENT_TIMESTAMP">
+            function <span class="apidocSignatureSpan">sql.functions.</span>CURRENT_TIMESTAMP
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.sql.functions.DAY">
+            function <span class="apidocSignatureSpan">sql.functions.</span>DAY
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.sql.functions.DISTINCT">
+            function <span class="apidocSignatureSpan">sql.functions.</span>DISTINCT
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.sql.functions.HOUR">
+            function <span class="apidocSignatureSpan">sql.functions.</span>HOUR
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.sql.functions.HSTORE">
+            function <span class="apidocSignatureSpan">sql.functions.</span>HSTORE
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.sql.functions.LEFT">
+            function <span class="apidocSignatureSpan">sql.functions.</span>LEFT
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.sql.functions.LENGTH">
+            function <span class="apidocSignatureSpan">sql.functions.</span>LENGTH
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.sql.functions.LOWER">
+            function <span class="apidocSignatureSpan">sql.functions.</span>LOWER
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.sql.functions.LTRIM">
+            function <span class="apidocSignatureSpan">sql.functions.</span>LTRIM
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.sql.functions.MAX">
+            function <span class="apidocSignatureSpan">sql.functions.</span>MAX
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.sql.functions.MIN">
+            function <span class="apidocSignatureSpan">sql.functions.</span>MIN
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.sql.functions.MONTH">
+            function <span class="apidocSignatureSpan">sql.functions.</span>MONTH
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.sql.functions.PLAINTO_TSQUERY">
+            function <span class="apidocSignatureSpan">sql.functions.</span>PLAINTO_TSQUERY
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.sql.functions.RANDOM">
+            function <span class="apidocSignatureSpan">sql.functions.</span>RANDOM
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.sql.functions.RIGHT">
+            function <span class="apidocSignatureSpan">sql.functions.</span>RIGHT
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.sql.functions.ROUND">
+            function <span class="apidocSignatureSpan">sql.functions.</span>ROUND
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.sql.functions.RTRIM">
+            function <span class="apidocSignatureSpan">sql.functions.</span>RTRIM
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.sql.functions.SETWEIGHT">
+            function <span class="apidocSignatureSpan">sql.functions.</span>SETWEIGHT
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.sql.functions.SUBSTR">
+            function <span class="apidocSignatureSpan">sql.functions.</span>SUBSTR
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.sql.functions.SUM">
+            function <span class="apidocSignatureSpan">sql.functions.</span>SUM
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.sql.functions.TO_TSQUERY">
+            function <span class="apidocSignatureSpan">sql.functions.</span>TO_TSQUERY
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.sql.functions.TO_TSVECTOR">
+            function <span class="apidocSignatureSpan">sql.functions.</span>TO_TSVECTOR
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.sql.functions.TRIM">
+            function <span class="apidocSignatureSpan">sql.functions.</span>TRIM
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.sql.functions.TS_RANK">
+            function <span class="apidocSignatureSpan">sql.functions.</span>TS_RANK
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.sql.functions.TS_RANK_CD">
+            function <span class="apidocSignatureSpan">sql.functions.</span>TS_RANK_CD
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.sql.functions.UPPER">
+            function <span class="apidocSignatureSpan">sql.functions.</span>UPPER
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.sql.functions.YEAR">
+            function <span class="apidocSignatureSpan">sql.functions.</span>YEAR
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+</ol></div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.sql" id="apidoc.module.sql">module sql</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.sql.Sql" id="apidoc.element.sql.Sql">
+        function <span class="apidocSignatureSpan">sql.</span>Sql
+        <span class="apidocSignatureSpan">(dialect, config)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">Sql = function (dialect, config) {
+  this.setDialect(dialect || DEFAULT_DIALECT, config);
+
+  // attach the standard SQL functions to this instance
+  this.functions = functions.getStandardFunctions();
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.sql.Table" id="apidoc.element.sql.Table">
+        function <span class="apidocSignatureSpan">sql.</span>Table
+        <span class="apidocSignatureSpan">(config)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">Table = function (config) {
+  this._schema = config.schema;
+  this._name = config.name;
+  this._initialConfig = config;
+  this.columnWhiteList = !!config.columnWhiteList;
+  this.isTemporary=!!config.isTemporary;
+  this.snakeToCamel = !!config.snakeToCamel;
+  this.columns = [];
+  this.foreignKeys = [];
+  this.table = this;
+  if (!config.sql) {
+    config.sql = require('./index');
+  }
+  this.sql = config.sql;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.sql.create" id="apidoc.element.sql.create">
+        function <span class="apidocSignatureSpan">sql.</span>create
+        <span class="apidocSignatureSpan">(dialect, config)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">create = function (dialect, config) {
+  return new Sql(dialect, {});
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.sql.dialect" id="apidoc.element.sql.dialect">
+        function <span class="apidocSignatureSpan">sql.</span>dialect
+        <span class="apidocSignatureSpan">(config)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">dialect = function (config) {
+  this.output = [];
+  this.params = [];
+  this.config = config || {};
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.sql.Sql" id="apidoc.module.sql.Sql">module sql.Sql</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.sql.Sql.Sql" id="apidoc.element.sql.Sql.Sql">
+        function <span class="apidocSignatureSpan">sql.</span>Sql
+        <span class="apidocSignatureSpan">(dialect, config)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">Sql = function (dialect, config) {
+  this.setDialect(dialect || DEFAULT_DIALECT, config);
+
+  // attach the standard SQL functions to this instance
+  this.functions = functions.getStandardFunctions();
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.sql.Sql.prototype" id="apidoc.module.sql.Sql.prototype">module sql.Sql.prototype</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.sql.Sql.prototype.array" id="apidoc.element.sql.Sql.prototype.array">
+        function <span class="apidocSignatureSpan">sql.Sql.prototype.</span>array
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">array = function () {
+  var arrayCall = new ArrayCall(sliced(arguments));
+  arrayCall.sql = this;
+  return arrayCall;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.sql.Sql.prototype.constant" id="apidoc.element.sql.Sql.prototype.constant">
+        function <span class="apidocSignatureSpan">sql.Sql.prototype.</span>constant
+        <span class="apidocSignatureSpan">(value)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">constant = function (value) {
+  var config={
+    name:"constant",
+    property:"constant",
+    isConstant:true,
+    constantValue:value,
+  };
+  var cn = new Column(config);
+  return cn;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.sql.Sql.prototype.define" id="apidoc.element.sql.Sql.prototype.define">
+        function <span class="apidocSignatureSpan">sql.Sql.prototype.</span>define
+        <span class="apidocSignatureSpan">(def)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">define = function (def) {
+  def = _.defaults(def || {}, {
+    sql: this
+  });
+
+  return Table.define(def);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+var sql = require('sql');
+
+//(optionally) set the SQL dialect
+sql.setDialect('postgres');
+//possible dialects: mssql, mysql, postgres (default), sqlite
+
+//first we define our tables
+var user = sql.<span class="apidocCodeKeywordSpan">define</span>({
+name: 'user',
+columns: ['id', 'name', 'email', 'lastLogin']
+});
+
+var post = sql.define({
+name: 'post',
+columns: ['id', 'userId', 'date', 'title', 'body']
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.sql.Sql.prototype.functionCallCreator" id="apidoc.element.sql.Sql.prototype.functionCallCreator">
+        function <span class="apidocSignatureSpan">sql.Sql.prototype.</span>functionCallCreator
+        <span class="apidocSignatureSpan">(name)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">functionCallCreator = function (name) {
+  return function() {
+    return new FunctionCall(name, sliced(arguments));
+  };
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.sql.Sql.prototype.interval" id="apidoc.element.sql.Sql.prototype.interval">
+        function <span class="apidocSignatureSpan">sql.Sql.prototype.</span>interval
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">interval = function () {
+  var interval = new Interval(sliced(arguments));
+  return interval;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.sql.Sql.prototype.select" id="apidoc.element.sql.Sql.prototype.select">
+        function <span class="apidocSignatureSpan">sql.Sql.prototype.</span>select
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">select = function () {
+  var query = new Query({sql: this});
+  query.select.apply(query, arguments);
+  return query;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+
+var post = sql.define({
+  name: 'post',
+  columns: ['id', 'userId', 'date', 'title', 'body']
+});
+
+//now let's make a simple query
+var query = user.<span class="apidocCodeKeywordSpan">select</span>(user.star()).from(user).toQuery();
+console.log(query.text); //SELECT "user".* FROM "user"
+
+//something more interesting
+var query = user
+.select(user.id)
+.from(user)
+.where(
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.sql.Sql.prototype.setDialect" id="apidoc.element.sql.Sql.prototype.setDialect">
+        function <span class="apidocSignatureSpan">sql.Sql.prototype.</span>setDialect
+        <span class="apidocSignatureSpan">(dialect, config)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">setDialect = function (dialect, config) {
+  this.dialect     = getDialect(dialect);
+  this.dialectName = dialect;
+  this.config      = config;
+
+  return this;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+## use
+
+```js
+//require the module
+var sql = require('sql');
+
+//(optionally) set the SQL dialect
+sql.<span class="apidocCodeKeywordSpan">setDialect</span>('postgres');
+//possible dialects: mssql, mysql, postgres (default), sqlite
+
+//first we define our tables
+var user = sql.define({
+  name: 'user',
+  columns: ['id', 'name', 'email', 'lastLogin']
+});
+...</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.sql.Table" id="apidoc.module.sql.Table">module sql.Table</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.sql.Table.Table" id="apidoc.element.sql.Table.Table">
+        function <span class="apidocSignatureSpan">sql.</span>Table
+        <span class="apidocSignatureSpan">(config)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">Table = function (config) {
+  this._schema = config.schema;
+  this._name = config.name;
+  this._initialConfig = config;
+  this.columnWhiteList = !!config.columnWhiteList;
+  this.isTemporary=!!config.isTemporary;
+  this.snakeToCamel = !!config.snakeToCamel;
+  this.columns = [];
+  this.foreignKeys = [];
+  this.table = this;
+  if (!config.sql) {
+    config.sql = require('./index');
+  }
+  this.sql = config.sql;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.sql.Table.define" id="apidoc.element.sql.Table.define">
+        function <span class="apidocSignatureSpan">sql.Table.</span>define
+        <span class="apidocSignatureSpan">(config)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">define = function (config) {
+  var table = new Table(config);
+  // allow hash of columns as well as array
+  if (config.columns &amp;&amp; !util.isArray(config.columns)) {
+    var cols = [];
+
+    for (var key in config.columns) {
+      if (config.columns.hasOwnProperty(key)) {
+        var col = config.columns[key];
+        col.name = key;
+        cols.push(col);
+      }
+    }
+
+    config.columns = cols;
+  }
+
+  for (var i = 0; i &lt; config.columns.length; i++) {
+    table.addColumn(config.columns[i]);
+  }
+
+  if(config.foreignKeys !== undefined) {
+    if(util.isArray(config.foreignKeys)) {
+      for(i = 0; i &lt; config.foreignKeys.length; i++) {
+        table.foreignKeys.push(new ForeignKeyNode(config.foreignKeys[i]));
+      }
+    } else {
+      table.foreignKeys.push(new ForeignKeyNode(config.foreignKeys));
+    }
+  }
+  return table;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+var sql = require('sql');
+
+//(optionally) set the SQL dialect
+sql.setDialect('postgres');
+//possible dialects: mssql, mysql, postgres (default), sqlite
+
+//first we define our tables
+var user = sql.<span class="apidocCodeKeywordSpan">define</span>({
+name: 'user',
+columns: ['id', 'name', 'email', 'lastLogin']
+});
+
+var post = sql.define({
+name: 'post',
+columns: ['id', 'userId', 'date', 'title', 'body']
+...</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.sql.Table.prototype" id="apidoc.module.sql.Table.prototype">module sql.Table.prototype</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.sql.Table.prototype.addColumn" id="apidoc.element.sql.Table.prototype.addColumn">
+        function <span class="apidocSignatureSpan">sql.Table.prototype.</span>addColumn
+        <span class="apidocSignatureSpan">(col, options)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">addColumn = function (col, options) {
+  col     = this.createColumn(col);
+  options = lodash.extend({
+    noisy: true
+  }, options || {});
+
+  if(this.hasColumn(col)) {
+    if (options.noisy) {
+      throw new Error('Table ' + this._name + ' already has column or property by the name of ' + col.name);
+    } else {
+      return this;
+    }
+  } else if(!!this[col.name] &amp;&amp; (process.env.NODE_ENV === 'debug')) {
+    console.log('Please notice that you have just defined the column "' + col.name + '". In order to access it, you need to use "
+table.getColumn(\'' + col.name + '\');"!');
+  }
+  this.columns.push(col);
+
+  function snakeToCamel(snakeName) {
+    return snakeName.replace(/[\-_]([a-z])/g, function(m, $1){ return $1.toUpperCase(); });
+  }
+
+  var property = col.property = col.property || (this.snakeToCamel ? snakeToCamel(col.name) : col.name);
+  this[property] = this[property] || col;
+  return this;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+    ]
+});
+
+/**
+ * Adding a column to an existing table:
+ */
+var model = sql.define({ name: 'foo', columns: [] });
+model.<span class="apidocCodeKeywordSpan">addColumn</span>('id');
+
+// If you try to add another column "id", node-sql will throw an error.
+// You can suppress that error via:
+model.addColumn('id', { noisy: false });
+```
+
+Read the module's documentation for more details.
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.sql.Table.prototype.alter" id="apidoc.element.sql.Table.prototype.alter">
+        function <span class="apidocSignatureSpan">sql.Table.prototype.</span>alter
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">alter = function () {
+  var query = new Query(this);
+  query[method].apply(query, arguments);
+  return query;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.sql.Table.prototype.and" id="apidoc.element.sql.Table.prototype.and">
+        function <span class="apidocSignatureSpan">sql.Table.prototype.</span>and
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">and = function () {
+  var query = new Query(this);
+  query.where.apply(query, arguments);
+  return query;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+console.log(query.text); //SELECT "user".* FROM "user"
+
+//something more interesting
+var query = user
+    .select(user.id)
+    .from(user)
+    .where(
+      user.name.equals('boom').<span class="apidocCodeKeywordSpan">and</span>(user.id.equals(1))
+    ).or(
+      user.name.equals('bang').and(user.id.equals(2))
+    ).toQuery();
+
+//query is parameterized by default
+console.log(query.text); //SELECT "user"."id" FROM "user" WHERE ((("user"."name"
+; = $1) AND ("user"."id" = $2)) OR (("user"."name" = $3) AND ("user"."id&amp;#
+x22; = $4)))
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.sql.Table.prototype.as" id="apidoc.element.sql.Table.prototype.as">
+        function <span class="apidocSignatureSpan">sql.Table.prototype.</span>as
+        <span class="apidocSignatureSpan">(alias)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">as = function (alias) {
+  // TODO could this be cleaner?
+  var t = Table.define(this._initialConfig);
+  t.alias = alias;
+  return t;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+//this also makes parts of your queries composable, which is handy
+
+var friendship = sql.define({
+  name: 'friendship',
+  columns: ['userId', 'friendId']
+});
+
+var friends = user.<span class="apidocCodeKeywordSpan">as</span>('friends');
+var userToFriends = user
+  .leftJoin(friendship).on(user.id.equals(friendship.userId))
+  .leftJoin(friends).on(friendship.friendId.equals(friends.id));
+
+//and now...compose...
+var friendsWhoHaveLoggedInQuery = user.from(userToFriends).where(friends.lastLogin.isNotNull());
+//SELECT * FROM "user"
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.sql.Table.prototype.clone" id="apidoc.element.sql.Table.prototype.clone">
+        function <span class="apidocSignatureSpan">sql.Table.prototype.</span>clone
+        <span class="apidocSignatureSpan">(config)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">clone = function (config) {
+  return Table.define(lodash.extend({
+    schema: this._schema,
+    name: this._name,
+    sql: this.sql,
+    columnWhiteList: !!this.columnWhiteList,
+    snakeToCamel: !!this.snakeToCamel,
+    columns: this.columns,
+    foreignKeys: this.foreignKeys
+  }, config || {}));
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.sql.Table.prototype.count" id="apidoc.element.sql.Table.prototype.count">
+        function <span class="apidocSignatureSpan">sql.Table.prototype.</span>count
+        <span class="apidocSignatureSpan">(alias)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">count = function (alias) {
+  var name = this.alias || this._name,
+    col = new Column({table: this, star: true});
+  // ColumnNode
+  return col.count(alias || name + '_count');
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.sql.Table.prototype.create" id="apidoc.element.sql.Table.prototype.create">
+        function <span class="apidocSignatureSpan">sql.Table.prototype.</span>create
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">create = function () {
+  var query = new Query(this);
+  query[method].apply(query, arguments);
+  return query;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.sql.Table.prototype.createColumn" id="apidoc.element.sql.Table.prototype.createColumn">
+        function <span class="apidocSignatureSpan">sql.Table.prototype.</span>createColumn
+        <span class="apidocSignatureSpan">(col)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">createColumn = function (col) {
+  if(!(col instanceof Column)) {
+    if(typeof col === 'string') {
+      col = { name: col };
+    }
+
+    col.table = this;
+    col = new Column(col);
+
+    // Load subfields from array into an object of form name: Column
+    if(util.isArray(col.subfields)) {
+      col.subfields = lodash.chain(col.subfields)
+        .map(lodash.bind(function (subfield) {
+          return [subfield, new Column({
+            table: this,
+            subfieldContainer: col,
+            name: subfield
+          })];
+        }, this))
+        .fromPairs()
+        .value();
+    }
+  }
+
+  return col;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.sql.Table.prototype.delete" id="apidoc.element.sql.Table.prototype.delete">
+        function <span class="apidocSignatureSpan">sql.Table.prototype.</span>delete
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">delete = function () {
+  var query = new Query(this);
+  query[method].apply(query, arguments);
+  return query;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.sql.Table.prototype.drop" id="apidoc.element.sql.Table.prototype.drop">
+        function <span class="apidocSignatureSpan">sql.Table.prototype.</span>drop
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">drop = function () {
+  var query = new Query(this);
+  query[method].apply(query, arguments);
+  return query;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.sql.Table.prototype.from" id="apidoc.element.sql.Table.prototype.from">
+        function <span class="apidocSignatureSpan">sql.Table.prototype.</span>from
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">from = function () {
+  var query = new Query(this);
+  query[method].apply(query, arguments);
+  return query;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+
+var post = sql.define({
+  name: 'post',
+  columns: ['id', 'userId', 'date', 'title', 'body']
+});
+
+//now let's make a simple query
+var query = user.select(user.star()).<span class="apidocCodeKeywordSpan">from</span>(user).toQuery();
+console.log(query.text); //SELECT "user".* FROM "user"
+
+//something more interesting
+var query = user
+.select(user.id)
+.from(user)
+.where(
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.sql.Table.prototype.get" id="apidoc.element.sql.Table.prototype.get">
+        function <span class="apidocSignatureSpan">sql.Table.prototype.</span>get
+        <span class="apidocSignatureSpan">(colName)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">get = function (colName) {
+  for(var i = 0; i &lt; this.columns.length; i++) {
+    var col = this.columns[i];
+    if (colName === col.property || colName === col.name) {
+      return col;
+    }
+  }
+  if(this.columnWhiteList)
+    return null;
+  throw new Error('Table ' + this._name + ' does not have a column or property named ' + colName);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.sql.Table.prototype.getColumn" id="apidoc.element.sql.Table.prototype.getColumn">
+        function <span class="apidocSignatureSpan">sql.Table.prototype.</span>getColumn
+        <span class="apidocSignatureSpan">(colName)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">getColumn = function (colName) {
+  for(var i = 0; i &lt; this.columns.length; i++) {
+    var col = this.columns[i];
+    if (colName === col.property || colName === col.name) {
+      return col;
+    }
+  }
+  if(this.columnWhiteList)
+    return null;
+  throw new Error('Table ' + this._name + ' does not have a column or property named ' + colName);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.sql.Table.prototype.getName" id="apidoc.element.sql.Table.prototype.getName">
+        function <span class="apidocSignatureSpan">sql.Table.prototype.</span>getName
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">getName = function () {
+  if (this.sql &amp;&amp; this.sql.dialectName=="mssql" &amp;&amp; this.isTemporary) return "#"+this._name;
+  return this._name;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.sql.Table.prototype.getSchema" id="apidoc.element.sql.Table.prototype.getSchema">
+        function <span class="apidocSignatureSpan">sql.Table.prototype.</span>getSchema
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">getSchema = function () {
+  return this._schema;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.sql.Table.prototype.hasColumn" id="apidoc.element.sql.Table.prototype.hasColumn">
+        function <span class="apidocSignatureSpan">sql.Table.prototype.</span>hasColumn
+        <span class="apidocSignatureSpan">(col)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">hasColumn = function (col) {
+  var columnName = col instanceof Column ? col.name : col;
+  return this.columns.some(function(column) {
+    return column.property === columnName || column.name === columnName;
+  });
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.sql.Table.prototype.indexes" id="apidoc.element.sql.Table.prototype.indexes">
+        function <span class="apidocSignatureSpan">sql.Table.prototype.</span>indexes
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">indexes = function () {
+  return new Query(this).indexes();
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.sql.Table.prototype.insert" id="apidoc.element.sql.Table.prototype.insert">
+        function <span class="apidocSignatureSpan">sql.Table.prototype.</span>insert
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">insert = function () {
+  var query = new Query(this);
+  if(!arguments[0] || (util.isArray(arguments[0]) &amp;&amp; arguments[0].length === 0)){
+    query.select.call(query, this.star());
+    query.where.apply(query,["1=2"]);
+  } else {
+    query.insert.apply(query, arguments);
+  }
+  return query;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.sql.Table.prototype.join" id="apidoc.element.sql.Table.prototype.join">
+        function <span class="apidocSignatureSpan">sql.Table.prototype.</span>join
+        <span class="apidocSignatureSpan">(other)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">join = function (other) {
+  return new JoinNode('INNER', this.toNode(), other.toNode(), other);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+
+//queries can be named
+var query = user.select(user.star()).from(user).toNamedQuery('user.all');
+console.log(query.name); //'user.all'
+
+//how about a join?
+var query = user.select(user.name, post.body)
+.from(user.<span class="apidocCodeKeywordSpan">join</span>(post).on(user.id.equals(post.userId))).toQuery();
+
+console.log(query.text); //'SELECT "user"."name", "post"."body" FROM "user"
+; INNER JOIN "post" ON ("user"."id" = "post"."userId")'
+
+//this also makes parts of your queries composable, which is handy
+
+var friendship = sql.define({
+name: 'friendship',
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.sql.Table.prototype.joinTo" id="apidoc.element.sql.Table.prototype.joinTo">
+        function <span class="apidocSignatureSpan">sql.Table.prototype.</span>joinTo
+        <span class="apidocSignatureSpan">(other)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">joinTo = function (other) {
+  return Joiner.leftJoin(this, other);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.sql.Table.prototype.leftJoin" id="apidoc.element.sql.Table.prototype.leftJoin">
+        function <span class="apidocSignatureSpan">sql.Table.prototype.</span>leftJoin
+        <span class="apidocSignatureSpan">(other)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">leftJoin = function (other) {
+  return new JoinNode('LEFT', this.toNode(), other.toNode());
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+var friendship = sql.define({
+  name: 'friendship',
+  columns: ['userId', 'friendId']
+});
+
+var friends = user.as('friends');
+var userToFriends = user
+  .<span class="apidocCodeKeywordSpan">leftJoin</span>(friendship).on(user.id.equals(friendship.userId))
+  .leftJoin(friends).on(friendship.friendId.equals(friends.id));
+
+//and now...compose...
+var friendsWhoHaveLoggedInQuery = user.from(userToFriends).where(friends.lastLogin.isNotNull());
+//SELECT * FROM "user"
+//LEFT JOIN "friendship" ON ("user"."id" = "friendship"."userId")
+//LEFT JOIN "user" AS "friends" ON ("friendship"."friendId" = "friends"."
+id")
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.sql.Table.prototype.limit" id="apidoc.element.sql.Table.prototype.limit">
+        function <span class="apidocSignatureSpan">sql.Table.prototype.</span>limit
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">limit = function () {
+  var query = new Query(this);
+  query[method].apply(query, arguments);
+  return query;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.sql.Table.prototype.literal" id="apidoc.element.sql.Table.prototype.literal">
+        function <span class="apidocSignatureSpan">sql.Table.prototype.</span>literal
+        <span class="apidocSignatureSpan">(literal)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">literal = function (literal) {
+  return new LiteralNode(literal);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.sql.Table.prototype.offset" id="apidoc.element.sql.Table.prototype.offset">
+        function <span class="apidocSignatureSpan">sql.Table.prototype.</span>offset
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">offset = function () {
+  var query = new Query(this);
+  query[method].apply(query, arguments);
+  return query;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.sql.Table.prototype.or" id="apidoc.element.sql.Table.prototype.or">
+        function <span class="apidocSignatureSpan">sql.Table.prototype.</span>or
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">or = function () {
+  var query = new Query(this);
+  query[method].apply(query, arguments);
+  return query;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+
+//something more interesting
+var query = user
+    .select(user.id)
+    .from(user)
+    .where(
+      user.name.equals('boom').and(user.id.equals(1))
+    ).<span class="apidocCodeKeywordSpan">or</span>(
+      user.name.equals('bang').and(user.id.equals(2))
+    ).toQuery();
+
+//query is parameterized by default
+console.log(query.text); //SELECT "user"."id" FROM "user" WHERE ((("user"."name"
+; = $1) AND ("user"."id" = $2)) OR (("user"."name" = $3) AND ("user"."id&amp;#
+x22; = $4)))
+
+console.log(query.values); //['boom', 1, 'bang', 2]
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.sql.Table.prototype.order" id="apidoc.element.sql.Table.prototype.order">
+        function <span class="apidocSignatureSpan">sql.Table.prototype.</span>order
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">order = function () {
+  var query = new Query(this);
+  query[method].apply(query, arguments);
+  return query;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.sql.Table.prototype.select" id="apidoc.element.sql.Table.prototype.select">
+        function <span class="apidocSignatureSpan">sql.Table.prototype.</span>select
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">select = function () {
+  // create the query and pass it off
+  var query = new Query(this);
+  if (arguments.length === 0) {
+    query.select.call(query, this.star());
+  } else {
+    query.select.apply(query, arguments);
+  }
+  return query;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+
+var post = sql.define({
+  name: 'post',
+  columns: ['id', 'userId', 'date', 'title', 'body']
+});
+
+//now let's make a simple query
+var query = user.<span class="apidocCodeKeywordSpan">select</span>(user.star()).from(user).toQuery();
+console.log(query.text); //SELECT "user".* FROM "user"
+
+//something more interesting
+var query = user
+.select(user.id)
+.from(user)
+.where(
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.sql.Table.prototype.setSchema" id="apidoc.element.sql.Table.prototype.setSchema">
+        function <span class="apidocSignatureSpan">sql.Table.prototype.</span>setSchema
+        <span class="apidocSignatureSpan">(schema)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">setSchema = function (schema) {
+  this._schema = schema;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.sql.Table.prototype.star" id="apidoc.element.sql.Table.prototype.star">
+        function <span class="apidocSignatureSpan">sql.Table.prototype.</span>star
+        <span class="apidocSignatureSpan">(options)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">star = function (options) {
+  options = options || {};
+  if (options.prefix) {
+    return this.columns.map(function(column) {
+      return this[column.name].as(options.prefix + column.name);
+    }.bind(this));
+  }
+
+  return new Column({table: this, star: true});
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+
+var post = sql.define({
+  name: 'post',
+  columns: ['id', 'userId', 'date', 'title', 'body']
+});
+
+//now let's make a simple query
+var query = user.select(user.<span class="apidocCodeKeywordSpan">star</span>()).from(user).toQuery();
+console.log(query.text); //SELECT "user".* FROM "user"
+
+//something more interesting
+var query = user
+.select(user.id)
+.from(user)
+.where(
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.sql.Table.prototype.subQuery" id="apidoc.element.sql.Table.prototype.subQuery">
+        function <span class="apidocSignatureSpan">sql.Table.prototype.</span>subQuery
+        <span class="apidocSignatureSpan">(alias)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">subQuery = function (alias) {
+  // create the query and pass it off
+  var query = new Query(this);
+  query.type = 'SUBQUERY';
+  query.alias = alias;
+  query.join = function(other) {
+    return new JoinNode('INNER', this.toNode(), other.toNode(), other);
+  };
+  return query;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.sql.Table.prototype.toNode" id="apidoc.element.sql.Table.prototype.toNode">
+        function <span class="apidocSignatureSpan">sql.Table.prototype.</span>toNode
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">toNode = function () {
+  return new TableNode(this);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.sql.Table.prototype.truncate" id="apidoc.element.sql.Table.prototype.truncate">
+        function <span class="apidocSignatureSpan">sql.Table.prototype.</span>truncate
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">truncate = function () {
+  var query = new Query(this);
+  query[method].apply(query, arguments);
+  return query;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.sql.Table.prototype.update" id="apidoc.element.sql.Table.prototype.update">
+        function <span class="apidocSignatureSpan">sql.Table.prototype.</span>update
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">update = function () {
+  var query = new Query(this);
+  query[method].apply(query, arguments);
+  return query;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.sql.Table.prototype.where" id="apidoc.element.sql.Table.prototype.where">
+        function <span class="apidocSignatureSpan">sql.Table.prototype.</span>where
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">where = function () {
+  var query = new Query(this);
+  query[method].apply(query, arguments);
+  return query;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+var query = user.select(user.star()).from(user).toQuery();
+console.log(query.text); //SELECT "user".* FROM "user"
+
+//something more interesting
+var query = user
+    .select(user.id)
+    .from(user)
+    .<span class="apidocCodeKeywordSpan">where</span>(
+      user.name.equals('boom').and(user.id.equals(1))
+    ).or(
+      user.name.equals('bang').and(user.id.equals(2))
+    ).toQuery();
+
+//query is parameterized by default
+console.log(query.text); //SELECT "user"."id" FROM "user" WHERE ((("user"."name"
+; = $1) AND ("user"."id" = $2)) OR (("user"."name" = $3) AND ("user"."id&amp;#
+x22; = $4)))
+...</pre></li>
+    </ul>
+
+
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.sql.dialect" id="apidoc.module.sql.dialect">module sql.dialect</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.sql.dialect.dialect" id="apidoc.element.sql.dialect.dialect">
+        function <span class="apidocSignatureSpan">sql.</span>dialect
+        <span class="apidocSignatureSpan">(config)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">dialect = function (config) {
+  this.output = [];
+  this.params = [];
+  this.config = config || {};
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.sql.dialect.prototype" id="apidoc.module.sql.dialect.prototype">module sql.dialect.prototype</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.sql.dialect.prototype._getParameterPlaceholder" id="apidoc.element.sql.dialect.prototype._getParameterPlaceholder">
+        function <span class="apidocSignatureSpan">sql.dialect.prototype.</span>_getParameterPlaceholder
+        <span class="apidocSignatureSpan">(index, value)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">_getParameterPlaceholder = function (index, value) {
+<span class="apidocCodeCommentSpan">  /* jshint unused: false */
+</span>  return '$' + index;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.sql.dialect.prototype._getParameterText" id="apidoc.element.sql.dialect.prototype._getParameterText">
+        function <span class="apidocSignatureSpan">sql.dialect.prototype.</span>_getParameterText
+        <span class="apidocSignatureSpan">(index, value)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">_getParameterText = function (index, value) {
+  if (this._disableParameterPlaceholders) {
+    // do not use placeholder
+    return this._getParameterValue(value);
+  } else {
+    // use placeholder
+    return this._getParameterPlaceholder(index, value);
+  }
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.sql.dialect.prototype._getParameterValue" id="apidoc.element.sql.dialect.prototype._getParameterValue">
+        function <span class="apidocSignatureSpan">sql.dialect.prototype.</span>_getParameterValue
+        <span class="apidocSignatureSpan">(value, quoteChar)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">_getParameterValue = function (value, quoteChar) {
+  // handle primitives
+  if (null === value) {
+    value = 'NULL';
+  } else if ('boolean' === typeof value) {
+    value = value ? 'TRUE' : 'FALSE';
+  } else if ('number' === typeof value) {
+    // number is just number
+    value = value;
+  } else if ('string' === typeof value) {
+    // string uses single quote by default
+    value = this.quote(value, quoteChar || "'");
+  } else if ('object' === typeof value) {
+    if (Array.isArray(value)) {
+      if (this._myClass === Postgres) {
+        // naive check to see if this is an array of objects, which
+        // is handled differently than an array of primitives
+        if (value.length &amp;&amp; 'object' === typeof value[0] &amp;&amp;
+            !_.isFunction(value[0].toISOString) &amp;&amp;
+            !Array.isArray(value[0])) {
+            value = "'" + JSON.stringify(value) + "'";
+        } else {
+            var self = this;
+            value = value.map(function (item) {
+                // In a Postgres array, strings must be double-quoted
+                return self._getParameterValue(item, '"');
+            });
+            value = '\'{' + value.join(',') + '}\'';
+        }
+      } else {
+        value = _.map(value, this._getParameterValue.bind(this));
+        value = '(' + value.join(', ') + ')';
+      }
+    } else if (value instanceof Date) {
+      // Date object's default toString format does not get parsed well
+      // Handle dates using toISOString
+      value = this._getParameterValue(value.toISOString());
+    } else if (Buffer.isBuffer(value)) {
+      value = this._getParameterValue('\\x' + value.toString('hex'));
+    } else {
+      // rich object represent with string
+      var strValue = value.toString();
+      value = strValue === '[object Object]' ? this._getParameterValue(JSON.stringify(value)) : this._getParameterValue(strValue
+);
+    }
+  } else {
+    throw new Error('Unable to use ' + value + ' in query');
+  }
+
+  // value has been converted at this point
+  return value;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.sql.dialect.prototype._myClass" id="apidoc.element.sql.dialect.prototype._myClass">
+        function <span class="apidocSignatureSpan">sql.dialect.prototype.</span>_myClass
+        <span class="apidocSignatureSpan">(config)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">_myClass = function (config) {
+  this.output = [];
+  this.params = [];
+  this.config = config || {};
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.sql.dialect.prototype.findNode" id="apidoc.element.sql.dialect.prototype.findNode">
+        function <span class="apidocSignatureSpan">sql.dialect.prototype.</span>findNode
+        <span class="apidocSignatureSpan">(list, type)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">findNode = function (list, type) {
+  for (var i= 0, len=list.length; i&lt;len; i++) {
+    var n=list[i];
+    if (n.type==type) return {index:i,node:n};
+  }
+  return undefined;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.sql.dialect.prototype.getQuery" id="apidoc.element.sql.dialect.prototype.getQuery">
+        function <span class="apidocSignatureSpan">sql.dialect.prototype.</span>getQuery
+        <span class="apidocSignatureSpan">(queryNode)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">getQuery = function (queryNode) {
+  // passed in a table, not a query
+  if (queryNode instanceof Table) {
+    queryNode = queryNode.select(queryNode.star());
+  }
+  this.output = this.visit(queryNode);
+
+  //if is a create view, must replace paramaters with values
+  if (this.output.indexOf('CREATE VIEW') &gt; -1) {
+    var previousFlagStatus = this._disableParameterPlaceholders;
+    this._disableParameterPlaceholders = true;
+    this.output = [];
+    this.output = this.visit(queryNode);
+    this.params = [];
+    this._disableParameterPlaceholders = previousFlagStatus;
+  }
+
+  // create the query object
+  var query = { text: this.output.join(' '), values: this.params };
+
+  // reset the internal state of this builder
+  this.output = [];
+  this.params = [];
+
+  return query;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.sql.dialect.prototype.getString" id="apidoc.element.sql.dialect.prototype.getString">
+        function <span class="apidocSignatureSpan">sql.dialect.prototype.</span>getString
+        <span class="apidocSignatureSpan">(queryNode)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">getString = function (queryNode) {
+  // switch off parameter placeholders
+  var previousFlagStatus = this._disableParameterPlaceholders;
+  this._disableParameterPlaceholders = true;
+  var query;
+  try {
+    // use the same code path for query building
+    query = this.getQuery(queryNode);
+  } finally {
+    // always restore the flag afterwards
+    this._disableParameterPlaceholders = previousFlagStatus;
+  }
+  return query.text;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.sql.dialect.prototype.handleDistinct" id="apidoc.element.sql.dialect.prototype.handleDistinct">
+        function <span class="apidocSignatureSpan">sql.dialect.prototype.</span>handleDistinct
+        <span class="apidocSignatureSpan">(actions, filters)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">handleDistinct = function (actions, filters) {
+  var distinctNode = this.findNode(filters,"DISTINCT");
+  //if (!distinctNode) distinctNode = _findNode(targets,"DISTINCT");
+  //if (!distinctNode) distinctNode = _findNode(actions,"DISTINCT");
+  if (!distinctNode) return;
+  var selectInfo = this.findNode(actions,"SELECT");
+  if (!selectInfo) return; // there should be one by now, I think
+  // mark the SELECT node that it's distinct
+  selectInfo.node.isDistinct = true;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.sql.dialect.prototype.quote" id="apidoc.element.sql.dialect.prototype.quote">
+        function <span class="apidocSignatureSpan">sql.dialect.prototype.</span>quote
+        <span class="apidocSignatureSpan">(word, quoteCharacter)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">quote = function (word, quoteCharacter) {
+  var q;
+  if (quoteCharacter) {
+    // use the specified quote character if given
+    q = quoteCharacter;
+  } else {
+    q = this._quoteCharacter;
+  }
+  // handle square brackets specially
+  if (q=='['){
+    return '['+word+']';
+  } else {
+    return q + word.replace(new RegExp(q,'g'),q+q) + q;
+  }
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.sql.dialect.prototype.visit" id="apidoc.element.sql.dialect.prototype.visit">
+        function <span class="apidocSignatureSpan">sql.dialect.prototype.</span>visit
+        <span class="apidocSignatureSpan">(node)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">visit = function (node) {
+  switch(node.type) {
+    case 'QUERY'           : return this.visitQuery(node);
+    case 'SUBQUERY'        : return this.visitSubquery(node);
+    case 'SELECT'          : return this.visitSelect(node);
+    case 'INSERT'          : return this.visitInsert(node);
+    case 'UPDATE'          : return this.visitUpdate(node);
+    case 'DELETE'          : return this.visitDelete(node);
+    case 'CREATE'          : return this.visitCreate(node);
+    case 'DROP'            : return this.visitDrop(node);
+    case 'TRUNCATE'        : return this.visitTruncate(node);
+    case 'DISTINCT'        : return this.visitDistinct(node);
+    case 'DISTINCT ON'     : return this.visitDistinctOn(node);
+    case 'ALIAS'           : return this.visitAlias(node);
+    case 'ALTER'           : return this.visitAlter(node);
+    case 'CAST'            : return this.visitCast(node);
+    case 'FROM'            : return this.visitFrom(node);
+    case 'WHERE'           : return this.visitWhere(node);
+    case 'ORDER BY'        : return this.visitOrderBy(node);
+    case 'ORDER BY VALUE'  : return this.visitOrderByValue(node);
+    case 'GROUP BY'        : return this.visitGroupBy(node);
+    case 'HAVING'          : return this.visitHaving(node);
+    case 'RETURNING'       : return this.visitReturning(node);
+    case 'ONDUPLICATE'     : return this.visitOnDuplicate(node);
+    case 'ONCONFLICT'      : return this.visitOnConflict(node);
+    case 'FOR UPDATE'      : return this.visitForUpdate();
+    case 'FOR SHARE'       : return this.visitForShare();
+    case 'TABLE'           : return this.visitTable(node);
+    case 'COLUMN'          : return this.visitColumn(node);
+    case 'FOREIGN KEY'     : return this.visitForeignKey(node);
+    case 'JOIN'            : return this.visitJoin(node);
+    case 'LITERAL'         : return this.visitLiteral(node);
+    case 'TEXT'            : return node.text;
+    case 'PARAMETER'       : return this.visitParameter(node);
+    case 'DEFAULT'         : return this.visitDefault(node);
+    case 'IF EXISTS'       : return this.visitIfExists();
+    case 'IF NOT EXISTS'   : return this.visitIfNotExists();
+    case 'OR IGNORE'       : return this.visitOrIgnore();
+    case 'CASCADE'         : return this.visitCascade();
+    case 'RESTRICT'        : return this.visitRestrict();
+    case 'RENAME'          : return this.visitRename(node);
+    case 'ADD COLUMN'      : return this.visitAddColumn(node);
+    case 'DROP COLUMN'     : return this.visitDropColumn(node);
+    case 'RENAME COLUMN'   : return this.visitRenameColumn(node);
+    case 'INDEXES'         : return this.visitIndexes(node);
+    case 'CREATE INDEX'    : return this.visitCreateIndex(node);
+    case 'DROP INDEX'      : return this.visitDropIndex(node);
+    case 'FUNCTION CALL'   : return this.visitFunctionCall(node);
+    case 'ARRAY CALL'      : return this.visitArrayCall(node);
+    case 'CREATE VIEW'     : return this.visitCreateView(node);
+    case 'INTERVAL'        : return this.visitInterval(node);
+
+    case 'POSTFIX UNARY' : return this.visitPostfixUnary(node);
+    case 'PREFIX UNARY'  : return this.visitPrefixUnary(node);
+    case 'BINARY'        : return this.visitBinary(node);
+    case 'TERNARY'       : return this.visitTernary(node);
+    case 'IN'            : return this.visitIn(node);
+    case 'NOT IN'        : return this.visitNotIn(node);
+    case 'CASE'          : return this.visitCase(node);
+    case 'AT'            : return this.visitAt(node);
+    case 'SLICE'         : return this.visitSlice(node);
+
+    case 'LIMIT' :
+    case 'OFFSET':
+      return this.visitModifier(node);
+    default:
+      throw new Error("Unrecognized node type " + node.type);
+  }
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.sql.dialect.prototype.visitAddColumn" id="apidoc.element.sql.dialect.prototype.visitAddColumn">
+        function <span class="apidocSignatureSpan">sql.dialect.prototype.</span>visitAddColumn
+        <span class="apidocSignatureSpan">(addColumn)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">visitAddColumn = function (addColumn) {
+  this._visitingAddColumn = true;
+  var result = ['ADD COLUMN ' + this.visit(addColumn.nodes[0])];
+  this._visitingAddColumn = false;
+  return result;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.sql.dialect.prototype.visitAlias" id="apidoc.element.sql.dialect.prototype.visitAlias">
+        function <span class="apidocSignatureSpan">sql.dialect.prototype.</span>visitAlias
+        <span class="apidocSignatureSpan">(alias)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">visitAlias = function (alias) {
+  var result = [this.visit(alias.value) + this._aliasText + this.quote(alias.alias)];
+  return result;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.sql.dialect.prototype.visitAlter" id="apidoc.element.sql.dialect.prototype.visitAlter">
+        function <span class="apidocSignatureSpan">sql.dialect.prototype.</span>visitAlter
+        <span class="apidocSignatureSpan">(alter)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">visitAlter = function (alter) {
+  this._visitingAlter = true;
+  // don't auto-generate from clause
+  var table = this._queryNode.table;
+  var result = [
+    'ALTER TABLE',
+    this.visit(table.toNode()),
+    alter.nodes.map(this.visit.bind(this)).join(', ')
+  ];
+  this._visitingAlter = false;
+  return result;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.sql.dialect.prototype.visitArrayCall" id="apidoc.element.sql.dialect.prototype.visitArrayCall">
+        function <span class="apidocSignatureSpan">sql.dialect.prototype.</span>visitArrayCall
+        <span class="apidocSignatureSpan">(arrayCall)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">visitArrayCall = function (arrayCall) {
+  var txt = 'ARRAY[' + arrayCall.nodes.map(this.visit.bind(this)).join(', ') + ']';
+  return [txt];
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.sql.dialect.prototype.visitAt" id="apidoc.element.sql.dialect.prototype.visitAt">
+        function <span class="apidocSignatureSpan">sql.dialect.prototype.</span>visitAt
+        <span class="apidocSignatureSpan">(at)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">visitAt = function (at) {
+  var text = '(' + this.visit(at.value) + ')[' + this.visit(at.index) + ']';
+  return [text];
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.sql.dialect.prototype.visitBinary" id="apidoc.element.sql.dialect.prototype.visitBinary">
+        function <span class="apidocSignatureSpan">sql.dialect.prototype.</span>visitBinary
+        <span class="apidocSignatureSpan">(binary)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">visitBinary = function (binary) {
+  var self = this;
+
+  binary.left.property = binary.left.name;
+  binary.right.property = binary.right.name;
+
+  var text = '(' + this.visit(binary.left) + ' ' + binary.operator + ' ';
+  if (Array.isArray(binary.right)) {
+    text += '(' + binary.right.map(function (node) {
+      return self.visit(node);
+    }).join(', ') + ')';
+  }
+  else {
+    text += this.visit(binary.right);
+  }
+  text += ')';
+  return [text];
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.sql.dialect.prototype.visitCascade" id="apidoc.element.sql.dialect.prototype.visitCascade">
+        function <span class="apidocSignatureSpan">sql.dialect.prototype.</span>visitCascade
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">visitCascade = function () {
+  return ['CASCADE'];
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.sql.dialect.prototype.visitCase" id="apidoc.element.sql.dialect.prototype.visitCase">
+        function <span class="apidocSignatureSpan">sql.dialect.prototype.</span>visitCase
+        <span class="apidocSignatureSpan">(caseExp)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">visitCase = function (caseExp) {
+  assert(caseExp.whenList.length == caseExp.thenList.length);
+
+  var self = this;
+  var text = '(CASE';
+
+  this.visitingCase = true;
+
+  for (var i = 0; i &lt; caseExp.whenList.length; i++) {
+    var whenExp = ' WHEN ' + this.visit(caseExp.whenList[i]);
+    var thenExp = ' THEN ' + this.visit(caseExp.thenList[i]);
+    text += whenExp + thenExp;
+  }
+
+  if (null !== caseExp.else &amp;&amp; undefined !== caseExp.else) {
+    text += ' ELSE ' + this.visit(caseExp.else);
+  }
+
+  this.visitingCase = false;
+
+  text += ' END)';
+  return [text];
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.sql.dialect.prototype.visitCast" id="apidoc.element.sql.dialect.prototype.visitCast">
+        function <span class="apidocSignatureSpan">sql.dialect.prototype.</span>visitCast
+        <span class="apidocSignatureSpan">(cast)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">visitCast = function (cast) {
+  this._visitingCast = true;
+  var result = ['CAST(' + this.visit(cast.value) + ' AS ' + cast.dataType + ')'];
+  this._visitingCast = false;
+  return result;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.sql.dialect.prototype.visitColumn" id="apidoc.element.sql.dialect.prototype.visitColumn">
+        function <span class="apidocSignatureSpan">sql.dialect.prototype.</span>visitColumn
+        <span class="apidocSignatureSpan">(columnNode)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">visitColumn = function (columnNode) {
+  var table = columnNode.table;
+  var inInsertUpdateClause = this._visitedInsert || this._visitingUpdateTargetColumn;
+  var inDdlClause = this._visitingAddColumn || this._visitingAlter || this._visitingCreate;
+  var inSelectClause =
+    this.visitingReturning ||
+      (!this._selectOrDeleteEndIndex
+        &amp;&amp; !this._visitingWhere   // jshint ignore:line
+        &amp;&amp; !inInsertUpdateClause  // jshint ignore:line
+        &amp;&amp; !inDdlClause           // jshint ignore:line
+        &amp;&amp; !this.visitingCase     // jshint ignore:line
+        &amp;&amp; !this._visitingJoin    // jshint ignore:line
+      );
+  var inFunctionCall = this._visitingFunctionCall;
+  var inCast = this._visitingCast;
+  var txt = [];
+  var closeParen = 0;
+  if(inSelectClause &amp;&amp; (table &amp;&amp; !table.alias || !!columnNode.alias)) {
+    if (columnNode.asArray) {
+      closeParen++;
+      txt.push(this._arrayAggFunctionName+'(');
+    }
+
+    if (!!columnNode.aggregator) {
+      closeParen++;
+      txt.push(columnNode.aggregator + '(');
+    }
+
+    if (columnNode.distinct === true) {
+      closeParen++;
+      txt.push('DISTINCT(');
+    }
+  }
+  if(!inInsertUpdateClause &amp;&amp; !this.visitingReturning &amp;&amp; !this._visitingCreate &amp;&amp; !this._visitingAlter &amp;&amp; !columnNode.subfieldContainer
+) {
+    if (table) {
+      if (typeof table.alias === 'string') {
+        txt.push(this.quote(table.alias));
+      } else {
+        if (table.getSchema()) {
+          txt.push(this.quote(table.getSchema()));
+          txt.push('.');
+        }
+        txt.push(this.quote(table.getName()));
+      }
+      txt.push('.');
+    }
+  }
+  if (columnNode.star) {
+    var allCols = [];
+    var hasAliases = false;
+    if(columnNode.aggregator !== 'COUNT') {
+      var tableName = txt.join('');
+      for (var i = 0; i &lt; table.columns.length; ++i) {
+        var col = table.columns[i];
+        var aliased = col.name !== (col.alias || col.property);
+        hasAliases = hasAliases || aliased;
+        allCols.push(tableName + this.quote(col.name) + (aliased ? this._aliasText + this.quote(col.alias || col.property) : ''));
+      }
+    }
+    if(hasAliases) {
+      txt = [allCols.join(', ')];
+    }
+    else {
+      txt.push('*');
+    }
+  }
+  else if (columnNode.isConstant) {
+    // this injects directly into SELECT statement rather than creating a parameter
+    //   txt.push(this._getParameterValue(columnNode.literalValue))
+    // currently thinking it is better to generate a parameter
+    var value = columnNode.constantValue;
+    this.params.push(value);
+    txt.push(this._getParameterText(this.params.length, value));
+  }
+  else {
+    if (columnNode.subfieldContainer) {
+      txt.push('(' + this.visitColumn(columnNode.subfieldContainer) + ').');
+    }
+    txt.push(this.quote(columnNode.name));
+  }
+  if(closeParen) {
+    for(var j = 0; j &lt; closeParen; j++) {
+      txt.push(')');
+    }
+  }
+  if(inSelectClause &amp;&amp; !inFunctionCall &amp;&amp; !inCast &amp;&amp; (columnNode.alias || columnNode.property !== columnNode.name)) {
+    txt.push(this._aliasText + this.quote(columnNode.alias || columnNode.property));
+  }
+  if(this._visitingCreate || this._visitingAddColumn) {
+    assert(columnNode.dataType, 'dataType missing for column ' + columnNode.name +
+      ' (CREATE TABLE and ADD COLUMN statements require a dataType)');
+    txt.push(' ' + columnNode.dataType);
+
+    if (this._visitingCreate) {
+      if (columnNode.primaryKey &amp;&amp; !this._visitCreateCompoundPrimaryKey) {
+        // creating a column as a primary key
+        txt.push(' PRIMARY KEY');
+      } else if (columnNode.notNull) {
+        txt.push(' NOT NULL');
+      }
+      if (!columnNode.primaryKey &amp;&amp; columnNode.unique) {
+        txt.push(' UNIQUE');
+      }
+      if (columnNode.defaultValue !== undefined) {
+        txt.push(' DEFAULT ' + this._getParameterValue(columnNode.defaultValue));
+      }
+    }
+
+    if (!!columnNode.references) {
+      assert.equal(typeof (columnNode.references), 'object',
+        'references is not a object for column ' + columnNode.name +
+        ' (REFERENCES statements within CREATE TABLE and ADD COLUMN statements' +
+        ' require refrences to be ...</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.sql.dialect.prototype.visitContainedBy" id="apidoc.element.sql.dialect.prototype.visitContainedBy">
+        function <span class="apidocSignatureSpan">sql.dialect.prototype.</span>visitContainedBy
+        <span class="apidocSignatureSpan">(containedBy)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">visitContainedBy = function (containedBy) {
+  var text = this.visit(containedBy.value);
+  text += ' &lt;@ ' + this.visit(containedBy.set);
+  return [text];
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.sql.dialect.prototype.visitContains" id="apidoc.element.sql.dialect.prototype.visitContains">
+        function <span class="apidocSignatureSpan">sql.dialect.prototype.</span>visitContains
+        <span class="apidocSignatureSpan">(contains)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">visitContains = function (contains) {
+  var text = this.visit(contains.value);
+  text += ' @&gt; ' + this.visit(contains.set);
+  return [text];
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.sql.dialect.prototype.visitCreate" id="apidoc.element.sql.dialect.prototype.visitCreate">
+        function <span class="apidocSignatureSpan">sql.dialect.prototype.</span>visitCreate
+        <span class="apidocSignatureSpan">(create)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">visitCreate = function (create) {
+  this._visitingCreate = true;
+  // don't auto-generate from clause
+  var table = this._queryNode.table;
+  var col_nodes = table.columns.map(function(col) { return col.toNode(); });
+  var foreign_key_nodes = table.foreignKeys;
+
+   var result = ['CREATE TABLE'];
+  if (create.options.isTemporary) result=['CREATE TEMPORARY TABLE'];
+  result = result.concat(create.nodes.map(this.visit.bind(this)));
+  result.push(this.visit(table.toNode()));
+  var primary_col_nodes = col_nodes.filter(function(n) {
+    return n.primaryKey;
+  });
+  this._visitCreateCompoundPrimaryKey = primary_col_nodes.length &gt; 1;
+  var colspec = '(' + col_nodes.map(this.visit.bind(this)).join(', ');
+  if (this._visitCreateCompoundPrimaryKey) {
+    colspec += ', PRIMARY KEY (';
+    colspec += primary_col_nodes.map(function(node) {
+      return this.quote(node.name);
+    }.bind(this)).join(', ');
+    colspec += ')';
+  }
+  if(foreign_key_nodes.length &gt; 0) {
+    colspec += ', ' + foreign_key_nodes.map(this.visit.bind(this)).join(', ');
+  }
+  colspec += ')';
+  result.push(colspec);
+  this._visitCreateCompoundPrimaryKey = false;
+  this._visitingCreate = false;
+  return result;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.sql.dialect.prototype.visitCreateIndex" id="apidoc.element.sql.dialect.prototype.visitCreateIndex">
+        function <span class="apidocSignatureSpan">sql.dialect.prototype.</span>visitCreateIndex
+        <span class="apidocSignatureSpan">(node)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">visitCreateIndex = function (node) {
+  if (!node.options.columns || (node.options.columns.length === 0)) {
+    throw new Error('No columns defined!');
+  }
+
+  var tableName = this.visit(node.table.toNode());
+  var result    = [ 'CREATE' ];
+
+  if (node.options.type) {
+    result.push(node.options.type.toUpperCase());
+  }
+
+  result = result.concat([ 'INDEX', this.quote(node.indexName()) ]);
+
+  if (node.options.algorithm) {
+    result.push("USING " + node.options.algorithm.toUpperCase());
+  }
+
+  result = result.concat([
+    "ON",
+    tableName,
+    "(" + node.options.columns.reduce(function(result, col) {
+      var column = col.name ? col.name : col.value.name;
+      var direction = col.direction ? ' ' + col.direction.text : '';
+      var res = result.concat(this.quote(column) + direction);
+      return res;
+    }.bind(this), []) + ")"
+  ]);
+
+  if (node.options.parser) {
+    result.push("WITH PARSER");
+    result.push(node.options.parser);
+  }
+
+  return result;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.sql.dialect.prototype.visitCreateView" id="apidoc.element.sql.dialect.prototype.visitCreateView">
+        function <span class="apidocSignatureSpan">sql.dialect.prototype.</span>visitCreateView
+        <span class="apidocSignatureSpan">(createView)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">visitCreateView = function (createView) {
+  var result = ['CREATE VIEW', this.quote(createView.options.viewName), 'AS'];
+  return result;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.sql.dialect.prototype.visitDefault" id="apidoc.element.sql.dialect.prototype.visitDefault">
+        function <span class="apidocSignatureSpan">sql.dialect.prototype.</span>visitDefault
+        <span class="apidocSignatureSpan">(parameter)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">visitDefault = function (parameter) {
+<span class="apidocCodeCommentSpan">  /* jshint unused: false */
+</span>  return ['DEFAULT'];
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.sql.dialect.prototype.visitDelete" id="apidoc.element.sql.dialect.prototype.visitDelete">
+        function <span class="apidocSignatureSpan">sql.dialect.prototype.</span>visitDelete
+        <span class="apidocSignatureSpan">(del)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">visitDelete = function (del) {
+  var result = ['DELETE'];
+  if (del.nodes.length) {
+    result.push(del.nodes.map(this.visit.bind(this)).join(', '));
+  }
+  this._selectOrDeleteEndIndex = result.length;
+  return result;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.sql.dialect.prototype.visitDistinct" id="apidoc.element.sql.dialect.prototype.visitDistinct">
+        function <span class="apidocSignatureSpan">sql.dialect.prototype.</span>visitDistinct
+        <span class="apidocSignatureSpan">(truncate)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">visitDistinct = function (truncate) {
+  // Nothing to do here since it's handled in the SELECT clause
+  return [];
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.sql.dialect.prototype.visitDistinctOn" id="apidoc.element.sql.dialect.prototype.visitDistinctOn">
+        function <span class="apidocSignatureSpan">sql.dialect.prototype.</span>visitDistinctOn
+        <span class="apidocSignatureSpan">(distinctOn)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">visitDistinctOn = function (distinctOn) {
+  return ['DISTINCT ON('+distinctOn.nodes.map(this.visit.bind(this)).join(', ')+')'];
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.sql.dialect.prototype.visitDrop" id="apidoc.element.sql.dialect.prototype.visitDrop">
+        function <span class="apidocSignatureSpan">sql.dialect.prototype.</span>visitDrop
+        <span class="apidocSignatureSpan">(drop)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">visitDrop = function (drop) {
+  // don't auto-generate from clause
+  var result = ['DROP TABLE'];
+  result = result.concat(drop.nodes.map(this.visit.bind(this)));
+  return result;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.sql.dialect.prototype.visitDropColumn" id="apidoc.element.sql.dialect.prototype.visitDropColumn">
+        function <span class="apidocSignatureSpan">sql.dialect.prototype.</span>visitDropColumn
+        <span class="apidocSignatureSpan">(dropColumn)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">visitDropColumn = function (dropColumn) {
+  return ['DROP COLUMN ' + this.visit(dropColumn.nodes[0])];
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.sql.dialect.prototype.visitDropIndex" id="apidoc.element.sql.dialect.prototype.visitDropIndex">
+        function <span class="apidocSignatureSpan">sql.dialect.prototype.</span>visitDropIndex
+        <span class="apidocSignatureSpan">(node)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">visitDropIndex = function (node) {
+  var result = [ 'DROP INDEX' ];
+
+  result.push(this.quote(node.table.getSchema() || "public") + "." + this.quote(node.options.indexName));
+
+  return result;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.sql.dialect.prototype.visitForShare" id="apidoc.element.sql.dialect.prototype.visitForShare">
+        function <span class="apidocSignatureSpan">sql.dialect.prototype.</span>visitForShare
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">visitForShare = function () {
+  return ['FOR SHARE'];
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.sql.dialect.prototype.visitForUpdate" id="apidoc.element.sql.dialect.prototype.visitForUpdate">
+        function <span class="apidocSignatureSpan">sql.dialect.prototype.</span>visitForUpdate
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">visitForUpdate = function () {
+  return ['FOR UPDATE'];
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.sql.dialect.prototype.visitForeignKey" id="apidoc.element.sql.dialect.prototype.visitForeignKey">
+        function <span class="apidocSignatureSpan">sql.dialect.prototype.</span>visitForeignKey
+        <span class="apidocSignatureSpan">(foreignKeyNode)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">visitForeignKey = function (foreignKeyNode)
+{
+  var txt = [];
+  if(this._visitingCreate) {
+    assert(foreignKeyNode.table, 'Foreign table missing for table reference');
+    assert(foreignKeyNode.columns, 'Columns missing for table reference');
+    if(foreignKeyNode.refColumns !== undefined) {
+      assert.equal(foreignKeyNode.columns.length, foreignKeyNode.refColumns.length, 'Number of local columns and foreign columns
+ differ in table reference');
+    }
+    if(foreignKeyNode.name !== undefined) {
+      txt.push('CONSTRAINT ' + this.quote(foreignKeyNode.name) + ' ');
+    }
+    txt.push('FOREIGN KEY ( ');
+    for(var i = 0; i &lt; foreignKeyNode.columns.length; i++) {
+      if(i&gt;0) {
+        txt.push(', ');
+      }
+      txt.push(this.quote(foreignKeyNode.columns[i]));
+    }
+    txt.push(' ) REFERENCES ');
+    if(foreignKeyNode.schema !== undefined) {
+      txt.push(this.quote(foreignKeyNode.schema) + '.');
+    }
+    txt.push(this.quote(foreignKeyNode.table));
+    if(foreignKeyNode.refColumns !== undefined) {
+      txt.push(' ( ');
+      for(i = 0; i &lt; foreignKeyNode.refColumns.length; i++) {
+        if(i&gt;0) {
+          txt.push(', ');
+        }
+        txt.push(this.quote(foreignKeyNode.refColumns[i]));
+      }
+      txt.push(' )');
+    }
+    var onDelete = foreignKeyNode.onDelete;
+    if(onDelete) {
+      onDelete = onDelete.toUpperCase();
+      if(onDelete === 'CASCADE' || onDelete === 'RESTRICT' || onDelete === 'SET NULL' || onDelete === 'SET DEFAULT' || onDelete === '
+NO ACTION') {
+        txt.push(' ON DELETE ' + onDelete);
+      }
+    }
+    var onUpdate = foreignKeyNode.onUpdate;
+    if(onUpdate) {
+      onUpdate = onUpdate.toUpperCase();
+      if(onUpdate === 'CASCADE' || onUpdate === 'RESTRICT' || onUpdate === 'SET NULL' || onUpdate === 'SET DEFAULT' || onUpdate === '
+NO ACTION') {
+        txt.push(' ON UPDATE ' + onUpdate);
+      }
+    }
+    if(foreignKeyNode.constraint) {
+      txt.push(' ' + foreignKeyNode.constraint.toUpperCase());
+    }
+  }
+  return [txt.join('')];
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.sql.dialect.prototype.visitFrom" id="apidoc.element.sql.dialect.prototype.visitFrom">
+        function <span class="apidocSignatureSpan">sql.dialect.prototype.</span>visitFrom
+        <span class="apidocSignatureSpan">(from)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">visitFrom = function (from) {
+  var result = [];
+  if (from.skipFromStatement) {
+    result.push(',');
+  } else {
+    result.push('FROM');
+  }
+  for(var i = 0; i &lt; from.nodes.length; i++) {
+    result = result.concat(this.visit(from.nodes[i]));
+  }
+  return result;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.sql.dialect.prototype.visitFunctionCall" id="apidoc.element.sql.dialect.prototype.visitFunctionCall">
+        function <span class="apidocSignatureSpan">sql.dialect.prototype.</span>visitFunctionCall
+        <span class="apidocSignatureSpan">(functionCall)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">visitFunctionCall = function (functionCall) {
+  this._visitingFunctionCall = true;
+  var _this = this;
+
+  function _extract() {
+    var nodes = functionCall.nodes.map(_this.visit.bind(_this));
+    if (nodes.length != 1) throw new Error('Not enough parameters passed to ' + functionCall.name + ' function');
+    var txt = 'EXTRACT(' + functionCall.name + ' FROM ' + (nodes[0]+'') + ')';
+    return txt;
+  }
+
+  var txt = "";
+  // Override date functions since postgres (and others) uses extract
+  if (['YEAR', 'MONTH', 'DAY', 'HOUR'].indexOf(functionCall.name) &gt;= 0) txt = _extract();
+  // Override CURRENT_TIMESTAMP function to remove parens
+  else if ('CURRENT_TIMESTAMP' == functionCall.name) txt = functionCall.name;
+  else txt = functionCall.name + '(' + functionCall.nodes.map(this.visit.bind(this)).join(', ') + ')';
+  this._visitingFunctionCall = false;
+  return [txt];
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.sql.dialect.prototype.visitGroupBy" id="apidoc.element.sql.dialect.prototype.visitGroupBy">
+        function <span class="apidocSignatureSpan">sql.dialect.prototype.</span>visitGroupBy
+        <span class="apidocSignatureSpan">(groupBy)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">visitGroupBy = function (groupBy) {
+  var result = ['GROUP BY', groupBy.nodes.map(this.visit.bind(this)).join(', ')];
+  return result;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.sql.dialect.prototype.visitHaving" id="apidoc.element.sql.dialect.prototype.visitHaving">
+        function <span class="apidocSignatureSpan">sql.dialect.prototype.</span>visitHaving
+        <span class="apidocSignatureSpan">(having)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">visitHaving = function (having) {
+  var result = ['HAVING', having.nodes.map(this.visit.bind(this)).join(' AND ')];
+  return result;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.sql.dialect.prototype.visitIfExists" id="apidoc.element.sql.dialect.prototype.visitIfExists">
+        function <span class="apidocSignatureSpan">sql.dialect.prototype.</span>visitIfExists
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">visitIfExists = function () {
+  return ['IF EXISTS'];
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.sql.dialect.prototype.visitIfNotExists" id="apidoc.element.sql.dialect.prototype.visitIfNotExists">
+        function <span class="apidocSignatureSpan">sql.dialect.prototype.</span>visitIfNotExists
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">visitIfNotExists = function () {
+  return ['IF NOT EXISTS'];
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.sql.dialect.prototype.visitIn" id="apidoc.element.sql.dialect.prototype.visitIn">
+        function <span class="apidocSignatureSpan">sql.dialect.prototype.</span>visitIn
+        <span class="apidocSignatureSpan">(binary)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">visitIn = function (binary) {
+  var self = this;
+  var text = '(';
+
+  if (Array.isArray(binary.right)) {
+    if (binary.right.length) {
+      var params  = [];
+      var hasNull = false;
+
+      binary.right.forEach(function(node) {
+        if (node.type === 'PARAMETER' &amp;&amp; node._val === null) {
+          hasNull = true;
+        } else {
+          params.push(self.visit(node));
+        }
+      });
+
+      if (params.length) {
+        text += this.visit(binary.left) + ' IN (' + params.join(', ') + ')';
+
+        if (hasNull) {
+          text += ' OR ' + this.visit(binary.left) + ' IS NULL';
+        }
+      } else { // implicitely has null
+        text += this.visit(binary.left) + ' IS NULL';
+      }
+    } else {
+      text += '1=0';
+    }
+  } else {
+    text += this.visit(binary.left) + ' IN ' + this.visit(binary.right);
+  }
+
+  text += ')';
+  return [text];
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.sql.dialect.prototype.visitIndexes" id="apidoc.element.sql.dialect.prototype.visitIndexes">
+        function <span class="apidocSignatureSpan">sql.dialect.prototype.</span>visitIndexes
+        <span class="apidocSignatureSpan">(node)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">visitIndexes = function (node) {
+<span class="apidocCodeCommentSpan">  /* jshint unused: false */
+</span>  var tableName = this._queryNode.table.getName();
+  var schemaName = this._queryNode.table.getSchema() || "public";
+
+  return [
+    "SELECT relname",
+    "FROM pg_class",
+    "WHERE oid IN (",
+    "SELECT indexrelid",
+    "FROM pg_index, pg_class WHERE pg_class.relname='" + tableName + "'",
+    "AND pg_class.relnamespace IN (SELECT pg_namespace.oid FROM pg_namespace WHERE nspname = '" + schemaName + "')",
+    "AND pg_class.oid=pg_index.indrelid)"
+  ].join(' ');
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.sql.dialect.prototype.visitInsert" id="apidoc.element.sql.dialect.prototype.visitInsert">
+        function <span class="apidocSignatureSpan">sql.dialect.prototype.</span>visitInsert
+        <span class="apidocSignatureSpan">(insert)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">visitInsert = function (insert) {
+  var self = this;
+  // don't use table.column for inserts
+  this._visitedInsert = true;
+
+  var result = ['INSERT'];
+  result = result.concat(insert.nodes.map(this.visit.bind(this)));
+  result.push('INTO ' + this.visit(this._queryNode.table.toNode()));
+  result.push('(' + insert.columns.map(this.visit.bind(this)).join(', ') + ')');
+
+  var paramNodes = insert.getParameters();
+
+  if (paramNodes.length &gt; 0) {
+    var paramText = paramNodes.map(function (paramSet) {
+        return paramSet.map(function (param) {
+          return self.visit(param);
+        }).join(', ');
+      }).map(function (param) {
+        return '('+param+')';
+      }).join(', ');
+
+    result.push('VALUES', paramText);
+
+    if (result.slice(2, 5).join(' ') === '() VALUES ()') {
+      result.splice(2, 3, 'DEFAULT VALUES');
+    }
+  }
+
+  this._visitedInsert = false;
+
+  return result;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.sql.dialect.prototype.visitInterval" id="apidoc.element.sql.dialect.prototype.visitInterval">
+        function <span class="apidocSignatureSpan">sql.dialect.prototype.</span>visitInterval
+        <span class="apidocSignatureSpan">(interval)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">visitInterval = function (interval) {
+  var parameter = '';
+  function _add(n, unit) {
+    if(!_.isNumber(n)) return;
+    if(parameter !== '') {
+      parameter += ' ';
+    }
+    parameter += n + ' ' + unit;
+  }
+  _add(interval.years, 'YEAR');
+  _add(interval.months, 'MONTH');
+  _add(interval.days, 'DAY');
+  _add(interval.hours, 'HOUR');
+  _add(interval.minutes, 'MINUTE');
+  _add(interval.seconds, 'SECOND');
+  if(parameter === '') parameter = '0 SECOND';
+  var result = "INTERVAL '" + parameter + "'";
+  return result;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.sql.dialect.prototype.visitJoin" id="apidoc.element.sql.dialect.prototype.visitJoin">
+        function <span class="apidocSignatureSpan">sql.dialect.prototype.</span>visitJoin
+        <span class="apidocSignatureSpan">(join)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">visitJoin = function (join) {
+  var result = [];
+  this._visitingJoin = true;
+  result = result.concat(this.visit(join.from));
+  result = result.concat(join.subType + ' JOIN');
+  result = result.concat(this.visit(join.to));
+  result = result.concat('ON');
+  result = result.concat(this.visit(join.on));
+  return result;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.sql.dialect.prototype.visitLiteral" id="apidoc.element.sql.dialect.prototype.visitLiteral">
+        function <span class="apidocSignatureSpan">sql.dialect.prototype.</span>visitLiteral
+        <span class="apidocSignatureSpan">(node)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">visitLiteral = function (node) {
+  var txt = [node.literal];
+  if(node.alias) {
+    txt.push(this._aliasText + this.quote(node.alias));
+  }
+  return [txt.join('')];
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.sql.dialect.prototype.visitModifier" id="apidoc.element.sql.dialect.prototype.visitModifier">
+        function <span class="apidocSignatureSpan">sql.dialect.prototype.</span>visitModifier
+        <span class="apidocSignatureSpan">(node)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">visitModifier = function (node) {
+  return [node.type, node.count.type ? this.visit(node.count) : node.count];
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.sql.dialect.prototype.visitNotIn" id="apidoc.element.sql.dialect.prototype.visitNotIn">
+        function <span class="apidocSignatureSpan">sql.dialect.prototype.</span>visitNotIn
+        <span class="apidocSignatureSpan">(binary)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">visitNotIn = function (binary) {
+  var self = this;
+  var text = '(';
+
+  if (Array.isArray(binary.right)) {
+    if (binary.right.length) {
+      var params  = [];
+      var hasNull = false;
+
+      binary.right.forEach(function(node) {
+        if (node.type === 'PARAMETER' &amp;&amp; node._val === null) {
+          hasNull = true;
+        } else {
+          params.push(self.visit(node));
+        }
+      });
+
+      if (params.length &amp;&amp; hasNull) {
+        text += 'NOT (';
+        text += this.visit(binary.left) + ' IN (' + params.join(', ') + ')';
+        text += ' OR ' + this.visit(binary.left) + ' IS NULL';
+        text += ')';
+      } else if (params.length) {
+        text += this.visit(binary.left) + ' NOT IN (' + params.join(', ') + ')';
+      } else { // implicitely has null
+        text += this.visit(binary.left) + ' IS NOT NULL';
+      }
+    } else {
+      text += '1=1';
+    }
+  } else {
+    text += this.visit(binary.left) + ' NOT IN ' + this.visit(binary.right);
+  }
+
+  text += ')';
+  return [text];
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.sql.dialect.prototype.visitOnConflict" id="apidoc.element.sql.dialect.prototype.visitOnConflict">
+        function <span class="apidocSignatureSpan">sql.dialect.prototype.</span>visitOnConflict
+        <span class="apidocSignatureSpan">(onConflict)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">visitOnConflict = function (onConflict) {
+  var result = ['ON CONFLICT'];
+  var columns = [];
+  var updateClause = [], i, col;
+  var table = this._queryNode.table;
+  if(onConflict.constraint)
+    result.push(['ON CONSTRAINT', this.quote(onConflict.constraint)].join(' '));
+  else if(onConflict.columns) {
+    for(i=0; i &lt; onConflict.columns.length; i++) {
+      columns.push(this.quote(table.getColumn(onConflict.columns[i]).name));
+    }
+    result.push( '(' + columns.join(', ') + ')' );
+  }
+
+  if(onConflict.update){
+    updateClause.push("DO UPDATE SET");
+    var update = onConflict.update;
+    var setClause = [];
+    for(i=0; i&lt;update.length; i++) {
+      col = this.quote(table.getColumn(update[i]).name);
+      setClause.push(col + ' = EXCLUDED.' + col);
+    }
+    updateClause.push(setClause.join(', '));
+  }
+  else
+    updateClause.push('DO NOTHING');
+
+  result.push(updateClause.join(' '));
+  return result;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.sql.dialect.prototype.visitOnDuplicate" id="apidoc.element.sql.dialect.prototype.visitOnDuplicate">
+        function <span class="apidocSignatureSpan">sql.dialect.prototype.</span>visitOnDuplicate
+        <span class="apidocSignatureSpan">(onDuplicate)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">visitOnDuplicate = function (onDuplicate) {
+  throw new Error('PostgreSQL does not allow onDuplicate clause.');
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.sql.dialect.prototype.visitOrIgnore" id="apidoc.element.sql.dialect.prototype.visitOrIgnore">
+        function <span class="apidocSignatureSpan">sql.dialect.prototype.</span>visitOrIgnore
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">visitOrIgnore = function () {
+  throw new Error('PostgreSQL does not allow orIgnore clause.');
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.sql.dialect.prototype.visitOrderBy" id="apidoc.element.sql.dialect.prototype.visitOrderBy">
+        function <span class="apidocSignatureSpan">sql.dialect.prototype.</span>visitOrderBy
+        <span class="apidocSignatureSpan">(orderBy)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">visitOrderBy = function (orderBy) {
+  var result = ['ORDER BY', orderBy.nodes.map(this.visit.bind(this)).join(', ')];
+  if (this._myClass === Postgres &amp;&amp; this.config.nullOrder) {
+      result.push('NULLS ' + this.config.nullOrder.toUpperCase());
+  }
+  return result;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.sql.dialect.prototype.visitOrderByValue" id="apidoc.element.sql.dialect.prototype.visitOrderByValue">
+        function <span class="apidocSignatureSpan">sql.dialect.prototype.</span>visitOrderByValue
+        <span class="apidocSignatureSpan">(orderByValue)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">visitOrderByValue = function (orderByValue) {
+  var text = this.visit(orderByValue.value);
+  if (orderByValue.direction) {
+    text += ' ' + this.visit(orderByValue.direction);
+  }
+  return [text];
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.sql.dialect.prototype.visitOverlap" id="apidoc.element.sql.dialect.prototype.visitOverlap">
+        function <span class="apidocSignatureSpan">sql.dialect.prototype.</span>visitOverlap
+        <span class="apidocSignatureSpan">(overlap)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">visitOverlap = function (overlap) {
+  var text = this.visit(overlap.value);
+  text += ' &amp;&amp; ' + this.visit(overlap.set);
+  return [text];
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.sql.dialect.prototype.visitParameter" id="apidoc.element.sql.dialect.prototype.visitParameter">
+        function <span class="apidocSignatureSpan">sql.dialect.prototype.</span>visitParameter
+        <span class="apidocSignatureSpan">(parameter)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">visitParameter = function (parameter) {
+  // save the value into the parameters array
+  var value = parameter.value();
+  this.params.push(value);
+  return parameter.isExplicit ? [] : [this._getParameterText(this.params.length, value)];
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.sql.dialect.prototype.visitPostfixUnary" id="apidoc.element.sql.dialect.prototype.visitPostfixUnary">
+        function <span class="apidocSignatureSpan">sql.dialect.prototype.</span>visitPostfixUnary
+        <span class="apidocSignatureSpan">(unary)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">visitPostfixUnary = function (unary) {
+  var text = '(' + this.visit(unary.left) + ' ' + unary.operator + ')';
+  return [text];
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.sql.dialect.prototype.visitPrefixUnary" id="apidoc.element.sql.dialect.prototype.visitPrefixUnary">
+        function <span class="apidocSignatureSpan">sql.dialect.prototype.</span>visitPrefixUnary
+        <span class="apidocSignatureSpan">(unary)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">visitPrefixUnary = function (unary) {
+  var text = '(' + unary.operator + ' ' + this.visit(unary.left) + ')';
+  return [text];
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.sql.dialect.prototype.visitQuery" id="apidoc.element.sql.dialect.prototype.visitQuery">
+        function <span class="apidocSignatureSpan">sql.dialect.prototype.</span>visitQuery
+        <span class="apidocSignatureSpan">(queryNode)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">visitQuery = function (queryNode) {
+  if (this._queryNode) return this.visitSubquery(queryNode,dontParenthesizeSubQuery(this._queryNode));
+  this._queryNode = queryNode;
+  // need to sort the top level query nodes on visitation priority
+  // so select/insert/update/delete comes before from comes before where
+  var missingFrom = true;
+  var hasFrom     = false;
+  var createView;
+  var isSelect     = false;
+  var actions = [];
+  var targets = [];
+  var filters = [];
+  for(var i = 0; i &lt; queryNode.nodes.length; i++) {
+    var node = queryNode.nodes[i];
+    switch(node.type) {
+      case "SELECT":
+        isSelect = true; // jshint ignore:line
+      case "DELETE":
+        actions.push(node);
+        break;
+      case "INDEXES":
+      case "INSERT":
+      case "UPDATE":
+      case "CREATE":
+      case "DROP":
+      case "TRUNCATE":
+      case "ALTER":
+        actions.push(node);
+        missingFrom = false;
+        break;
+      case "FROM":
+        node.skipFromStatement = hasFrom;
+        hasFrom = true;
+        missingFrom = false;
+        targets.push(node);
+        break;
+      case "CREATE VIEW":
+        createView = node;
+        break;
+      default:
+        filters.push(node);
+        break;
+    }
+  }
+  if(!actions.length) {
+    // if no actions are given, guess it's a select
+    actions.push(new Select().add('*'));
+    isSelect = true;
+  }
+  if(missingFrom &amp;&amp; queryNode.table instanceof Table) {
+	  // the instanceof handles the situation where a sql.select(some expression) is used and there should be no FROM clause
+    targets.push(new From().add(queryNode.table));
+  }
+  if (createView) {
+    if (isSelect) {
+      actions.unshift(createView);
+    } else {
+      throw new Error('Create View requires a Select.');
+    }
+  }
+  return this.visitQueryHelper(actions,targets,filters);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.sql.dialect.prototype.visitQueryHelper" id="apidoc.element.sql.dialect.prototype.visitQueryHelper">
+        function <span class="apidocSignatureSpan">sql.dialect.prototype.</span>visitQueryHelper
+        <span class="apidocSignatureSpan">(actions, targets, filters)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">visitQueryHelper = function (actions, targets, filters){
+  this.handleDistinct(actions, filters);
+  // lazy-man sorting
+  var sortedNodes = actions.concat(targets).concat(filters);
+  for(var i = 0; i &lt; sortedNodes.length; i++) {
+    var res = this.visit(sortedNodes[i]);
+    this.output = this.output.concat(res);
+  }
+  // implicit 'from'
+  return this.output;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.sql.dialect.prototype.visitRename" id="apidoc.element.sql.dialect.prototype.visitRename">
+        function <span class="apidocSignatureSpan">sql.dialect.prototype.</span>visitRename
+        <span class="apidocSignatureSpan">(rename)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">visitRename = function (rename) {
+  return ['RENAME TO ' + this.visit(rename.nodes[0])];
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.sql.dialect.prototype.visitRenameColumn" id="apidoc.element.sql.dialect.prototype.visitRenameColumn">
+        function <span class="apidocSignatureSpan">sql.dialect.prototype.</span>visitRenameColumn
+        <span class="apidocSignatureSpan">(renameColumn)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">visitRenameColumn = function (renameColumn) {
+  return ['RENAME COLUMN ' + this.visit(renameColumn.nodes[0]) + ' TO ' + this.visit(renameColumn.nodes[1])];
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.sql.dialect.prototype.visitRestrict" id="apidoc.element.sql.dialect.prototype.visitRestrict">
+        function <span class="apidocSignatureSpan">sql.dialect.prototype.</span>visitRestrict
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">visitRestrict = function () {
+  return ['RESTRICT'];
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.sql.dialect.prototype.visitReturning" id="apidoc.element.sql.dialect.prototype.visitReturning">
+        function <span class="apidocSignatureSpan">sql.dialect.prototype.</span>visitReturning
+        <span class="apidocSignatureSpan">(returning)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">visitReturning = function (returning) {
+  this.visitingReturning = true;
+  var r = ['RETURNING', returning.nodes.map(this.visit.bind(this)).join(', ')];
+  this.visitingReturning = false;
+
+  return r;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.sql.dialect.prototype.visitSelect" id="apidoc.element.sql.dialect.prototype.visitSelect">
+        function <span class="apidocSignatureSpan">sql.dialect.prototype.</span>visitSelect
+        <span class="apidocSignatureSpan">(select)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">visitSelect = function (select) {
+  var result = ['SELECT'];
+
+  if (select.isDistinct) result.push('DISTINCT');
+
+  var distinctOnNode = select.nodes.filter(function (node) {return node.type === 'DISTINCT ON';}).shift();
+  var nonDistinctOnNodes = select.nodes.filter(function (node) {return node.type !== 'DISTINCT ON';});
+
+  if (distinctOnNode) {
+    result.push(this.visit(distinctOnNode));
+  }
+
+  result.push(nonDistinctOnNodes.map(this.visit.bind(this)).join(', '));
+
+  this._selectOrDeleteEndIndex = this.output.length + result.length;
+
+  return result;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.sql.dialect.prototype.visitSlice" id="apidoc.element.sql.dialect.prototype.visitSlice">
+        function <span class="apidocSignatureSpan">sql.dialect.prototype.</span>visitSlice
+        <span class="apidocSignatureSpan">(slice)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">visitSlice = function (slice) {
+  var text = '(' + this.visit(slice.value) + ')';
+  text += '[' + this.visit(slice.start) + ':' + this.visit(slice.end) + ']';
+  return [text];
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.sql.dialect.prototype.visitSubquery" id="apidoc.element.sql.dialect.prototype.visitSubquery">
+        function <span class="apidocSignatureSpan">sql.dialect.prototype.</span>visitSubquery
+        <span class="apidocSignatureSpan">(queryNode, dontParenthesize)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">visitSubquery = function (queryNode, dontParenthesize) {
+  // create another query builder of the current class to build the subquery
+  var subQuery = new this._myClass(this.config);
+
+  // let the subquery modify this instance's params array
+  subQuery.params = this.params;
+
+  // pass on the disable parameter placeholder flag
+  var previousFlagStatus = subQuery._disableParameterPlaceholders;
+  subQuery._disableParameterPlaceholders = this._disableParameterPlaceholders;
+  try {
+    subQuery.visitQuery(queryNode);
+  } finally {
+    // restore the flag
+    subQuery._disableParameterPlaceholders = previousFlagStatus;
+  }
+
+  var alias = queryNode.alias;
+  if (dontParenthesize) {
+  	return [subQuery.output.join(' ') + (alias ? ' ' + this.quote(alias) : '')];
+  }
+  return ['(' + subQuery.output.join(' ') + ')' + (alias ? ' ' + this.quote(alias) : '')];
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.sql.dialect.prototype.visitTable" id="apidoc.element.sql.dialect.prototype.visitTable">
+        function <span class="apidocSignatureSpan">sql.dialect.prototype.</span>visitTable
+        <span class="apidocSignatureSpan">(tableNode)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">visitTable = function (tableNode) {
+  var table = tableNode.table;
+  var txt="";
+  if(table.getSchema()) {
+    txt = this.quote(table.getSchema());
+    txt += '.';
+  }
+  txt += this.quote(table.getName());
+  if(typeof table.alias === 'string') {
+    txt += this._aliasText + this.quote(table.alias);
+  }
+  return [txt];
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.sql.dialect.prototype.visitTernary" id="apidoc.element.sql.dialect.prototype.visitTernary">
+        function <span class="apidocSignatureSpan">sql.dialect.prototype.</span>visitTernary
+        <span class="apidocSignatureSpan">(ternary)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">visitTernary = function (ternary) {
+  var self = this;
+  var text = '(' + this.visit(ternary.left) + ' ' + ternary.operator + ' ';
+
+  var visitPart = function(value) {
+    var text = '';
+    if (Array.isArray(value)) {
+      text += '(' + value.map(function (node) {
+        return self.visit(node);
+      }).join(', ') + ')';
+    }
+    else {
+      text += self.visit(value);
+    }
+    return text;
+  };
+
+  text += visitPart(ternary.middle);
+  text += ' ' + ternary.separator + ' ';
+  text += visitPart(ternary.right);
+
+  text += ')';
+  return [text];
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.sql.dialect.prototype.visitTruncate" id="apidoc.element.sql.dialect.prototype.visitTruncate">
+        function <span class="apidocSignatureSpan">sql.dialect.prototype.</span>visitTruncate
+        <span class="apidocSignatureSpan">(truncate)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">visitTruncate = function (truncate) {
+  var result = ['TRUNCATE TABLE'];
+  result = result.concat(truncate.nodes.map(this.visit.bind(this)));
+  return result;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.sql.dialect.prototype.visitUpdate" id="apidoc.element.sql.dialect.prototype.visitUpdate">
+        function <span class="apidocSignatureSpan">sql.dialect.prototype.</span>visitUpdate
+        <span class="apidocSignatureSpan">(update)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">visitUpdate = function (update) {
+  // don't auto-generate from clause
+  var params = [];
+<span class="apidocCodeCommentSpan">  /* jshint boss: true */
+</span>  for(var i = 0, node; node = update.nodes[i]; i++) {
+    this._visitingUpdateTargetColumn = true;
+    var target_col = this.visit(node);
+    this._visitingUpdateTargetColumn = false;
+    params = params.concat(target_col + ' = ' + this.visit(node.value));
+  }
+  var result = [
+    'UPDATE',
+    this.visit(this._queryNode.table.toNode()),
+    'SET',
+    params.join(', ')
+  ];
+  return result;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.sql.dialect.prototype.visitWhere" id="apidoc.element.sql.dialect.prototype.visitWhere">
+        function <span class="apidocSignatureSpan">sql.dialect.prototype.</span>visitWhere
+        <span class="apidocSignatureSpan">(where)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">visitWhere = function (where) {
+  this._visitingWhere = true;
+  var result = ['WHERE', where.nodes.map(this.visit.bind(this)).join(', ')];
+  this._visitingWhere = false;
+  return result;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+
+
+
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.sql.functions" id="apidoc.module.sql.functions">module sql.functions</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.sql.functions.ABS" id="apidoc.element.sql.functions.ABS">
+        function <span class="apidocSignatureSpan">sql.functions.</span>ABS
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">ABS = function () {
+  // turn array-like arguments object into a true array
+  return new FunctionCall(name, sliced(arguments));
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.sql.functions.AVG" id="apidoc.element.sql.functions.AVG">
+        function <span class="apidocSignatureSpan">sql.functions.</span>AVG
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">AVG = function () {
+  // turn array-like arguments object into a true array
+  return new FunctionCall(name, sliced(arguments));
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.sql.functions.COALESCE" id="apidoc.element.sql.functions.COALESCE">
+        function <span class="apidocSignatureSpan">sql.functions.</span>COALESCE
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">COALESCE = function () {
+  // turn array-like arguments object into a true array
+  return new FunctionCall(name, sliced(arguments));
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.sql.functions.COUNT" id="apidoc.element.sql.functions.COUNT">
+        function <span class="apidocSignatureSpan">sql.functions.</span>COUNT
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">COUNT = function () {
+  // turn array-like arguments object into a true array
+  return new FunctionCall(name, sliced(arguments));
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.sql.functions.CURRENT_TIMESTAMP" id="apidoc.element.sql.functions.CURRENT_TIMESTAMP">
+        function <span class="apidocSignatureSpan">sql.functions.</span>CURRENT_TIMESTAMP
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">CURRENT_TIMESTAMP = function () {
+  // turn array-like arguments object into a true array
+  return new FunctionCall(name, sliced(arguments));
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.sql.functions.DAY" id="apidoc.element.sql.functions.DAY">
+        function <span class="apidocSignatureSpan">sql.functions.</span>DAY
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">DAY = function () {
+  // turn array-like arguments object into a true array
+  return new FunctionCall(name, sliced(arguments));
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.sql.functions.DISTINCT" id="apidoc.element.sql.functions.DISTINCT">
+        function <span class="apidocSignatureSpan">sql.functions.</span>DISTINCT
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">DISTINCT = function () {
+  // turn array-like arguments object into a true array
+  return new FunctionCall(name, sliced(arguments));
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.sql.functions.HOUR" id="apidoc.element.sql.functions.HOUR">
+        function <span class="apidocSignatureSpan">sql.functions.</span>HOUR
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">HOUR = function () {
+  // turn array-like arguments object into a true array
+  return new FunctionCall(name, sliced(arguments));
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.sql.functions.HSTORE" id="apidoc.element.sql.functions.HSTORE">
+        function <span class="apidocSignatureSpan">sql.functions.</span>HSTORE
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">HSTORE = function () {
+  // turn array-like arguments object into a true array
+  return new FunctionCall(name, sliced(arguments));
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.sql.functions.LEFT" id="apidoc.element.sql.functions.LEFT">
+        function <span class="apidocSignatureSpan">sql.functions.</span>LEFT
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">LEFT = function () {
+  // turn array-like arguments object into a true array
+  return new FunctionCall(name, sliced(arguments));
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.sql.functions.LENGTH" id="apidoc.element.sql.functions.LENGTH">
+        function <span class="apidocSignatureSpan">sql.functions.</span>LENGTH
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">LENGTH = function () {
+  // turn array-like arguments object into a true array
+  return new FunctionCall(name, sliced(arguments));
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.sql.functions.LOWER" id="apidoc.element.sql.functions.LOWER">
+        function <span class="apidocSignatureSpan">sql.functions.</span>LOWER
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">LOWER = function () {
+  // turn array-like arguments object into a true array
+  return new FunctionCall(name, sliced(arguments));
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.sql.functions.LTRIM" id="apidoc.element.sql.functions.LTRIM">
+        function <span class="apidocSignatureSpan">sql.functions.</span>LTRIM
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">LTRIM = function () {
+  // turn array-like arguments object into a true array
+  return new FunctionCall(name, sliced(arguments));
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.sql.functions.MAX" id="apidoc.element.sql.functions.MAX">
+        function <span class="apidocSignatureSpan">sql.functions.</span>MAX
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">MAX = function () {
+  // turn array-like arguments object into a true array
+  return new FunctionCall(name, sliced(arguments));
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.sql.functions.MIN" id="apidoc.element.sql.functions.MIN">
+        function <span class="apidocSignatureSpan">sql.functions.</span>MIN
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">MIN = function () {
+  // turn array-like arguments object into a true array
+  return new FunctionCall(name, sliced(arguments));
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.sql.functions.MONTH" id="apidoc.element.sql.functions.MONTH">
+        function <span class="apidocSignatureSpan">sql.functions.</span>MONTH
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">MONTH = function () {
+  // turn array-like arguments object into a true array
+  return new FunctionCall(name, sliced(arguments));
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.sql.functions.PLAINTO_TSQUERY" id="apidoc.element.sql.functions.PLAINTO_TSQUERY">
+        function <span class="apidocSignatureSpan">sql.functions.</span>PLAINTO_TSQUERY
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">PLAINTO_TSQUERY = function () {
+  // turn array-like arguments object into a true array
+  return new FunctionCall(name, sliced(arguments));
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.sql.functions.RANDOM" id="apidoc.element.sql.functions.RANDOM">
+        function <span class="apidocSignatureSpan">sql.functions.</span>RANDOM
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">RANDOM = function () {
+  // turn array-like arguments object into a true array
+  return new FunctionCall(name, sliced(arguments));
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.sql.functions.RIGHT" id="apidoc.element.sql.functions.RIGHT">
+        function <span class="apidocSignatureSpan">sql.functions.</span>RIGHT
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">RIGHT = function () {
+  // turn array-like arguments object into a true array
+  return new FunctionCall(name, sliced(arguments));
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.sql.functions.ROUND" id="apidoc.element.sql.functions.ROUND">
+        function <span class="apidocSignatureSpan">sql.functions.</span>ROUND
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">ROUND = function () {
+  // turn array-like arguments object into a true array
+  return new FunctionCall(name, sliced(arguments));
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.sql.functions.RTRIM" id="apidoc.element.sql.functions.RTRIM">
+        function <span class="apidocSignatureSpan">sql.functions.</span>RTRIM
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">RTRIM = function () {
+  // turn array-like arguments object into a true array
+  return new FunctionCall(name, sliced(arguments));
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.sql.functions.SETWEIGHT" id="apidoc.element.sql.functions.SETWEIGHT">
+        function <span class="apidocSignatureSpan">sql.functions.</span>SETWEIGHT
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">SETWEIGHT = function () {
+  // turn array-like arguments object into a true array
+  return new FunctionCall(name, sliced(arguments));
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.sql.functions.SUBSTR" id="apidoc.element.sql.functions.SUBSTR">
+        function <span class="apidocSignatureSpan">sql.functions.</span>SUBSTR
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">SUBSTR = function () {
+  // turn array-like arguments object into a true array
+  return new FunctionCall(name, sliced(arguments));
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.sql.functions.SUM" id="apidoc.element.sql.functions.SUM">
+        function <span class="apidocSignatureSpan">sql.functions.</span>SUM
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">SUM = function () {
+  // turn array-like arguments object into a true array
+  return new FunctionCall(name, sliced(arguments));
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.sql.functions.TO_TSQUERY" id="apidoc.element.sql.functions.TO_TSQUERY">
+        function <span class="apidocSignatureSpan">sql.functions.</span>TO_TSQUERY
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">TO_TSQUERY = function () {
+  // turn array-like arguments object into a true array
+  return new FunctionCall(name, sliced(arguments));
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.sql.functions.TO_TSVECTOR" id="apidoc.element.sql.functions.TO_TSVECTOR">
+        function <span class="apidocSignatureSpan">sql.functions.</span>TO_TSVECTOR
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">TO_TSVECTOR = function () {
+  // turn array-like arguments object into a true array
+  return new FunctionCall(name, sliced(arguments));
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.sql.functions.TRIM" id="apidoc.element.sql.functions.TRIM">
+        function <span class="apidocSignatureSpan">sql.functions.</span>TRIM
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">TRIM = function () {
+  // turn array-like arguments object into a true array
+  return new FunctionCall(name, sliced(arguments));
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.sql.functions.TS_RANK" id="apidoc.element.sql.functions.TS_RANK">
+        function <span class="apidocSignatureSpan">sql.functions.</span>TS_RANK
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">TS_RANK = function () {
+  // turn array-like arguments object into a true array
+  return new FunctionCall(name, sliced(arguments));
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.sql.functions.TS_RANK_CD" id="apidoc.element.sql.functions.TS_RANK_CD">
+        function <span class="apidocSignatureSpan">sql.functions.</span>TS_RANK_CD
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">TS_RANK_CD = function () {
+  // turn array-like arguments object into a true array
+  return new FunctionCall(name, sliced(arguments));
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.sql.functions.UPPER" id="apidoc.element.sql.functions.UPPER">
+        function <span class="apidocSignatureSpan">sql.functions.</span>UPPER
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">UPPER = function () {
+  // turn array-like arguments object into a true array
+  return new FunctionCall(name, sliced(arguments));
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.sql.functions.YEAR" id="apidoc.element.sql.functions.YEAR">
+        function <span class="apidocSignatureSpan">sql.functions.</span>YEAR
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">YEAR = function () {
+  // turn array-like arguments object into a true array
+  return new FunctionCall(name, sliced(arguments));
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocFooterDiv">
+    [ this document was created with
+    <a href="https://github.com/kaizhu256/node-utility2" target="_blank">utility2</a>
+    ]
+</div>
+</div>
+</body></html>
