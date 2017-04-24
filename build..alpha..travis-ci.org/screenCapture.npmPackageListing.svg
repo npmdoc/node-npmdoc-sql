@@ -1,145 +1,145 @@
 <svg height="2270" width="720" xmlns="http://www.w3.org/2000/svg">
 <rect height="2270" fill="#555" width="720"></rect>
 <text fill="#7f7" font-family="Courier New" font-size="12" xml:space="preserve">
-<tspan x="10" y="26">  0.  2017-04-17 16:09:05 +0000   528439 bytes  .</tspan>
-<tspan x="10" y="42">  1.  2017-04-17 16:09:05 +0000     1057 bytes  LICENSE</tspan>
-<tspan x="10" y="58">  2.  2017-04-17 16:09:05 +0000      285 bytes  Makefile</tspan>
-<tspan x="10" y="74">  3.  2017-04-17 16:09:05 +0000     5881 bytes  README.md</tspan>
-<tspan x="10" y="90">  4.  2017-04-17 16:09:05 +0000     2571 bytes  lib/column.js</tspan>
-<tspan x="10" y="106">  5.  2017-04-17 16:09:05 +0000      496 bytes  lib/dialect/index.js</tspan>
-<tspan x="10" y="122">  6.  2017-04-17 16:09:05 +0000    15899 bytes  lib/dialect/mssql.js</tspan>
-<tspan x="10" y="138">  7.  2017-04-17 16:09:05 +0000     5795 bytes  lib/dialect/mysql.js</tspan>
-<tspan x="10" y="154">  8.  2017-04-17 16:09:05 +0000     9491 bytes  lib/dialect/oracle.js</tspan>
-<tspan x="10" y="170">  9.  2017-04-17 16:09:05 +0000    39376 bytes  lib/dialect/postgres.js</tspan>
-<tspan x="10" y="186"> 10.  2017-04-17 16:09:05 +0000     5508 bytes  lib/dialect/sqlite.js</tspan>
-<tspan x="10" y="202"> 11.  2017-04-17 16:09:05 +0000     1730 bytes  lib/functions.js</tspan>
-<tspan x="10" y="218"> 12.  2017-04-17 16:09:05 +0000     2312 bytes  lib/index.js</tspan>
-<tspan x="10" y="234"> 13.  2017-04-17 16:09:05 +0000     1158 bytes  lib/joiner.js</tspan>
-<tspan x="10" y="250"> 14.  2017-04-17 16:09:05 +0000      103 bytes  lib/node/addColumn.js</tspan>
-<tspan x="10" y="266"> 15.  2017-04-17 16:09:05 +0000      543 bytes  lib/node/alias.js</tspan>
-<tspan x="10" y="282"> 16.  2017-04-17 16:09:05 +0000       98 bytes  lib/node/alter.js</tspan>
-<tspan x="10" y="298"> 17.  2017-04-17 16:09:05 +0000      659 bytes  lib/node/arrayCall.js</tspan>
-<tspan x="10" y="314"> 18.  2017-04-17 16:09:05 +0000      762 bytes  lib/node/at.js</tspan>
-<tspan x="10" y="330"> 19.  2017-04-17 16:09:05 +0000      837 bytes  lib/node/binary.js</tspan>
-<tspan x="10" y="346"> 20.  2017-04-17 16:09:05 +0000      100 bytes  lib/node/cascade.js</tspan>
-<tspan x="10" y="362"> 21.  2017-04-17 16:09:05 +0000      837 bytes  lib/node/case.js</tspan>
-<tspan x="10" y="378"> 22.  2017-04-17 16:09:05 +0000      781 bytes  lib/node/cast.js</tspan>
-<tspan x="10" y="394"> 23.  2017-04-17 16:09:05 +0000     1124 bytes  lib/node/column.js</tspan>
-<tspan x="10" y="410"> 24.  2017-04-17 16:09:05 +0000      216 bytes  lib/node/create.js</tspan>
-<tspan x="10" y="426"> 25.  2017-04-17 16:09:05 +0000     1245 bytes  lib/node/createIndex.js</tspan>
-<tspan x="10" y="442"> 26.  2017-04-17 16:09:05 +0000      210 bytes  lib/node/createView.js</tspan>
-<tspan x="10" y="458"> 27.  2017-04-17 16:09:05 +0000      121 bytes  lib/node/default.js</tspan>
-<tspan x="10" y="474"> 28.  2017-04-17 16:09:05 +0000       99 bytes  lib/node/delete.js</tspan>
-<tspan x="10" y="490"> 29.  2017-04-17 16:09:05 +0000      102 bytes  lib/node/distinct.js</tspan>
-<tspan x="10" y="506"> 30.  2017-04-17 16:09:05 +0000      105 bytes  lib/node/distinctOn.js</tspan>
-<tspan x="10" y="522"> 31.  2017-04-17 16:09:05 +0000      178 bytes  lib/node/drop.js</tspan>
-<tspan x="10" y="538"> 32.  2017-04-17 16:09:05 +0000      104 bytes  lib/node/dropColumn.js</tspan>
-<tspan x="10" y="554"> 33.  2017-04-17 16:09:05 +0000      937 bytes  lib/node/dropIndex.js</tspan>
-<tspan x="10" y="570"> 34.  2017-04-17 16:09:05 +0000      102 bytes  lib/node/forShare.js</tspan>
-<tspan x="10" y="586"> 35.  2017-04-17 16:09:05 +0000      103 bytes  lib/node/forUpdate.js</tspan>
-<tspan x="10" y="602"> 36.  2017-04-17 16:09:05 +0000      449 bytes  lib/node/foreignKey.js</tspan>
-<tspan x="10" y="618"> 37.  2017-04-17 16:09:05 +0000      115 bytes  lib/node/from.js</tspan>
-<tspan x="10" y="634"> 38.  2017-04-17 16:09:05 +0000      674 bytes  lib/node/functionCall.js</tspan>
-<tspan x="10" y="650"> 39.  2017-04-17 16:09:05 +0000      101 bytes  lib/node/groupBy.js</tspan>
-<tspan x="10" y="666"> 40.  2017-04-17 16:09:05 +0000       99 bytes  lib/node/having.js</tspan>
-<tspan x="10" y="682"> 41.  2017-04-17 16:09:05 +0000      102 bytes  lib/node/ifExists.js</tspan>
-<tspan x="10" y="698"> 42.  2017-04-17 16:09:05 +0000      106 bytes  lib/node/ifNotExists.js</tspan>
-<tspan x="10" y="714"> 43.  2017-04-17 16:09:05 +0000      780 bytes  lib/node/in.js</tspan>
-<tspan x="10" y="730"> 44.  2017-04-17 16:09:05 +0000     2782 bytes  lib/node/index.js</tspan>
-<tspan x="10" y="746"> 45.  2017-04-17 16:09:05 +0000      213 bytes  lib/node/indexes.js</tspan>
-<tspan x="10" y="762"> 46.  2017-04-17 16:09:05 +0000     1867 bytes  lib/node/insert.js</tspan>
-<tspan x="10" y="778"> 47.  2017-04-17 16:09:05 +0000      487 bytes  lib/node/interval.js</tspan>
-<tspan x="10" y="794"> 48.  2017-04-17 16:09:05 +0000      569 bytes  lib/node/join.js</tspan>
-<tspan x="10" y="810"> 49.  2017-04-17 16:09:05 +0000      282 bytes  lib/node/literal.js</tspan>
-<tspan x="10" y="826"> 50.  2017-04-17 16:09:05 +0000      796 bytes  lib/node/notIn.js</tspan>
-<tspan x="10" y="842"> 51.  2017-04-17 16:09:05 +0000      103 bytes  lib/node/onConflict.js</tspan>
-<tspan x="10" y="858"> 52.  2017-04-17 16:09:05 +0000      104 bytes  lib/node/onDuplicate.js</tspan>
-<tspan x="10" y="874"> 53.  2017-04-17 16:09:05 +0000      102 bytes  lib/node/orIgnore.js</tspan>
-<tspan x="10" y="890"> 54.  2017-04-17 16:09:05 +0000      101 bytes  lib/node/orderBy.js</tspan>
-<tspan x="10" y="906"> 55.  2017-04-17 16:09:05 +0000      407 bytes  lib/node/orderByValue.js</tspan>
-<tspan x="10" y="922"> 56.  2017-04-17 16:09:05 +0000      565 bytes  lib/node/parameter.js</tspan>
-<tspan x="10" y="938"> 57.  2017-04-17 16:09:05 +0000      826 bytes  lib/node/postfixUnary.js</tspan>
-<tspan x="10" y="954"> 58.  2017-04-17 16:09:05 +0000      821 bytes  lib/node/prefixUnary.js</tspan>
-<tspan x="10" y="970"> 59.  2017-04-17 16:09:05 +0000    13688 bytes  lib/node/query.js</tspan>
-<tspan x="10" y="986"> 60.  2017-04-17 16:09:05 +0000       99 bytes  lib/node/rename.js</tspan>
-<tspan x="10" y="1002"> 61.  2017-04-17 16:09:05 +0000      106 bytes  lib/node/renameColumn.js</tspan>
-<tspan x="10" y="1018"> 62.  2017-04-17 16:09:05 +0000      101 bytes  lib/node/restrict.js</tspan>
-<tspan x="10" y="1034"> 63.  2017-04-17 16:09:05 +0000      102 bytes  lib/node/returning.js</tspan>
-<tspan x="10" y="1050"> 64.  2017-04-17 16:09:05 +0000      402 bytes  lib/node/select.js</tspan>
-<tspan x="10" y="1066"> 65.  2017-04-17 16:09:05 +0000      802 bytes  lib/node/slice.js</tspan>
-<tspan x="10" y="1082"> 66.  2017-04-17 16:09:05 +0000      180 bytes  lib/node/table.js</tspan>
-<tspan x="10" y="1098"> 67.  2017-04-17 16:09:05 +0000      914 bytes  lib/node/ternary.js</tspan>
-<tspan x="10" y="1114"> 68.  2017-04-17 16:09:05 +0000      177 bytes  lib/node/text.js</tspan>
-<tspan x="10" y="1130"> 69.  2017-04-17 16:09:05 +0000      182 bytes  lib/node/truncate.js</tspan>
-<tspan x="10" y="1146"> 70.  2017-04-17 16:09:05 +0000       99 bytes  lib/node/update.js</tspan>
-<tspan x="10" y="1162"> 71.  2017-04-17 16:09:05 +0000     4890 bytes  lib/node/valueExpression.js</tspan>
-<tspan x="10" y="1178"> 72.  2017-04-17 16:09:05 +0000     1754 bytes  lib/node/where.js</tspan>
-<tspan x="10" y="1194"> 73.  2017-04-17 16:09:05 +0000     7144 bytes  lib/table.js</tspan>
-<tspan x="10" y="1210"> 74.  2017-04-17 16:09:05 +0000     2187 bytes  package.json</tspan>
-<tspan x="10" y="1226"> 75.  2017-04-17 16:09:05 +0000      444 bytes  runtests.js</tspan>
-<tspan x="10" y="1242"> 76.  2017-04-17 16:09:05 +0000     1868 bytes  test/binary-clause-tests.js</tspan>
-<tspan x="10" y="1258"> 77.  2017-04-17 16:09:05 +0000      641 bytes  test/clause-definition.js</tspan>
-<tspan x="10" y="1274"> 78.  2017-04-17 16:09:05 +0000     5280 bytes  test/column-tests.js</tspan>
-<tspan x="10" y="1290"> 79.  2017-04-17 16:09:05 +0000    15251 bytes  test/dialects/aggregate-tests.js</tspan>
-<tspan x="10" y="1306"> 80.  2017-04-17 16:09:05 +0000     5582 bytes  test/dialects/alias-tests.js</tspan>
-<tspan x="10" y="1322"> 81.  2017-04-17 16:09:05 +0000    10458 bytes  test/dialects/alter-table-tests.js</tspan>
-<tspan x="10" y="1338"> 82.  2017-04-17 16:09:05 +0000     2306 bytes  test/dialects/array-tests.js</tspan>
-<tspan x="10" y="1354"> 83.  2017-04-17 16:09:05 +0000     5135 bytes  test/dialects/binary-clause-tests.js</tspan>
-<tspan x="10" y="1370"> 84.  2017-04-17 16:09:05 +0000    12115 bytes  test/dialects/case-tests.js</tspan>
-<tspan x="10" y="1386"> 85.  2017-04-17 16:09:05 +0000    13433 bytes  test/dialects/cast-tests.js</tspan>
-<tspan x="10" y="1402"> 86.  2017-04-17 16:09:05 +0000     5169 bytes  test/dialects/clause-ordering-tests.js</tspan>
-<tspan x="10" y="1418"> 87.  2017-04-17 16:09:05 +0000    25060 bytes  test/dialects/create-table-tests.js</tspan>
-<tspan x="10" y="1434"> 88.  2017-04-17 16:09:05 +0000     2763 bytes  test/dialects/create-view-tests.js</tspan>
-<tspan x="10" y="1450"> 89.  2017-04-17 16:09:05 +0000     7877 bytes  test/dialects/date-tests.js</tspan>
-<tspan x="10" y="1466"> 90.  2017-04-17 16:09:05 +0000     5798 bytes  test/dialects/delete-tests.js</tspan>
-<tspan x="10" y="1482"> 91.  2017-04-17 16:09:05 +0000      648 bytes  test/dialects/distinct-on-tests.js</tspan>
-<tspan x="10" y="1498"> 92.  2017-04-17 16:09:05 +0000     3998 bytes  test/dialects/distinct-tests.js</tspan>
-<tspan x="10" y="1514"> 93.  2017-04-17 16:09:05 +0000     2372 bytes  test/dialects/drop-table-tests.js</tspan>
-<tspan x="10" y="1530"> 94.  2017-04-17 16:09:05 +0000      785 bytes  test/dialects/for-share-tests.js</tspan>
-<tspan x="10" y="1546"> 95.  2017-04-17 16:09:05 +0000     1207 bytes  test/dialects/for-update-tests.js</tspan>
-<tspan x="10" y="1562"> 96.  2017-04-17 16:09:05 +0000     2673 bytes  test/dialects/from-clause-tests.js</tspan>
-<tspan x="10" y="1578"> 97.  2017-04-17 16:09:05 +0000     2437 bytes  test/dialects/function-tests.js</tspan>
-<tspan x="10" y="1594"> 98.  2017-04-17 16:09:05 +0000     5042 bytes  test/dialects/group-by-tests.js</tspan>
-<tspan x="10" y="1610"> 99.  2017-04-17 16:09:05 +0000     5797 bytes  test/dialects/having-tests.js</tspan>
-<tspan x="10" y="1626">100.  2017-04-17 16:09:05 +0000      747 bytes  test/dialects/hstore-tests.js</tspan>
-<tspan x="10" y="1642">101.  2017-04-17 16:09:05 +0000     1753 bytes  test/dialects/ilike-tests.js</tspan>
-<tspan x="10" y="1658">102.  2017-04-17 16:09:05 +0000     6643 bytes  test/dialects/in-clause-tests.js</tspan>
-<tspan x="10" y="1674">103.  2017-04-17 16:09:05 +0000       14 bytes  test/dialects/index.js</tspan>
-<tspan x="10" y="1690">104.  2017-04-17 16:09:05 +0000     7771 bytes  test/dialects/indexes-tests.js</tspan>
-<tspan x="10" y="1706">105.  2017-04-17 16:09:05 +0000    35049 bytes  test/dialects/insert-tests.js</tspan>
-<tspan x="10" y="1722">106.  2017-04-17 16:09:05 +0000    10660 bytes  test/dialects/join-tests.js</tspan>
-<tspan x="10" y="1738">107.  2017-04-17 16:09:05 +0000     3208 bytes  test/dialects/join-to-tests.js</tspan>
-<tspan x="10" y="1754">108.  2017-04-17 16:09:05 +0000     1220 bytes  test/dialects/json-tests.js</tspan>
-<tspan x="10" y="1770">109.  2017-04-17 16:09:05 +0000     4725 bytes  test/dialects/limit-and-offset-tests.js</tspan>
-<tspan x="10" y="1786">110.  2017-04-17 16:09:05 +0000     3327 bytes  test/dialects/literal-tests.js</tspan>
-<tspan x="10" y="1802">111.  2017-04-17 16:09:05 +0000     2273 bytes  test/dialects/matches-test.js</tspan>
-<tspan x="10" y="1818">112.  2017-04-17 16:09:05 +0000     5852 bytes  test/dialects/namespace-tests.js</tspan>
-<tspan x="10" y="1834">113.  2017-04-17 16:09:05 +0000     6944 bytes  test/dialects/not-in-clause-tests.js</tspan>
-<tspan x="10" y="1850">114.  2017-04-17 16:09:05 +0000    14657 bytes  test/dialects/order-tests.js</tspan>
-<tspan x="10" y="1866">115.  2017-04-17 16:09:05 +0000     1156 bytes  test/dialects/regex-tests.js</tspan>
-<tspan x="10" y="1882">116.  2017-04-17 16:09:05 +0000      556 bytes  test/dialects/returning-tests.js</tspan>
-<tspan x="10" y="1898">117.  2017-04-17 16:09:05 +0000     7890 bytes  test/dialects/schema-tests.js</tspan>
-<tspan x="10" y="1914">118.  2017-04-17 16:09:05 +0000    14940 bytes  test/dialects/select-tests.js</tspan>
-<tspan x="10" y="1930">119.  2017-04-17 16:09:05 +0000     5659 bytes  test/dialects/shortcut-tests.js</tspan>
-<tspan x="10" y="1946">120.  2017-04-17 16:09:05 +0000     1241 bytes  test/dialects/subfield-tests.js</tspan>
-<tspan x="10" y="1962">121.  2017-04-17 16:09:05 +0000    12090 bytes  test/dialects/subquery-tests.js</tspan>
-<tspan x="10" y="1978">122.  2017-04-17 16:09:05 +0000     4077 bytes  test/dialects/support.js</tspan>
-<tspan x="10" y="1994">123.  2017-04-17 16:09:05 +0000    27208 bytes  test/dialects/table-tests.js</tspan>
-<tspan x="10" y="2010">124.  2017-04-17 16:09:05 +0000     3440 bytes  test/dialects/ternary-clause-tests.js</tspan>
-<tspan x="10" y="2026">125.  2017-04-17 16:09:05 +0000     4815 bytes  test/dialects/tostring-tests.js</tspan>
-<tspan x="10" y="2042">126.  2017-04-17 16:09:05 +0000      586 bytes  test/dialects/truncate-table-tests.js</tspan>
-<tspan x="10" y="2058">127.  2017-04-17 16:09:05 +0000     2847 bytes  test/dialects/unary-clause-tests.js</tspan>
-<tspan x="10" y="2074">128.  2017-04-17 16:09:05 +0000     8616 bytes  test/dialects/update-tests.js</tspan>
-<tspan x="10" y="2090">129.  2017-04-17 16:09:05 +0000     7612 bytes  test/dialects/value-expression-tests.js</tspan>
-<tspan x="10" y="2106">130.  2017-04-17 16:09:05 +0000     8234 bytes  test/dialects/where-clause-tests.js</tspan>
-<tspan x="10" y="2122">131.  2017-04-17 16:09:05 +0000     3294 bytes  test/function-tests.js</tspan>
-<tspan x="10" y="2138">132.  2017-04-17 16:09:05 +0000     9397 bytes  test/index-tests.js</tspan>
-<tspan x="10" y="2154">133.  2017-04-17 16:09:05 +0000      400 bytes  test/index.js</tspan>
-<tspan x="10" y="2170">134.  2017-04-17 16:09:05 +0000       24 bytes  test/mocha.opts</tspan>
-<tspan x="10" y="2186">135.  2017-04-17 16:09:05 +0000      335 bytes  test/select-tests.js</tspan>
-<tspan x="10" y="2202">136.  2017-04-17 16:09:05 +0000     7627 bytes  test/table-tests.js</tspan>
-<tspan x="10" y="2218">137.  2017-04-17 16:09:05 +0000      318 bytes  test/ternary-clause-tests.js</tspan>
-<tspan x="10" y="2234">138.  2017-04-17 16:09:05 +0000      318 bytes  test/unary-clause-tests.js</tspan>
-<tspan x="10" y="2250">139.  2017-04-17 16:09:05 +0000      574 bytes  test/value-expression-tests.js</tspan>
+<tspan x="10" y="26">  0.  2017-04-24 17:51:11 +0000   528439 bytes  .</tspan>
+<tspan x="10" y="42">  1.  2017-04-24 17:51:11 +0000     1057 bytes  LICENSE</tspan>
+<tspan x="10" y="58">  2.  2017-04-24 17:51:11 +0000      285 bytes  Makefile</tspan>
+<tspan x="10" y="74">  3.  2017-04-24 17:51:11 +0000     5881 bytes  README.md</tspan>
+<tspan x="10" y="90">  4.  2017-04-24 17:51:11 +0000     2571 bytes  lib/column.js</tspan>
+<tspan x="10" y="106">  5.  2017-04-24 17:51:11 +0000      496 bytes  lib/dialect/index.js</tspan>
+<tspan x="10" y="122">  6.  2017-04-24 17:51:11 +0000    15899 bytes  lib/dialect/mssql.js</tspan>
+<tspan x="10" y="138">  7.  2017-04-24 17:51:11 +0000     5795 bytes  lib/dialect/mysql.js</tspan>
+<tspan x="10" y="154">  8.  2017-04-24 17:51:11 +0000     9491 bytes  lib/dialect/oracle.js</tspan>
+<tspan x="10" y="170">  9.  2017-04-24 17:51:11 +0000    39376 bytes  lib/dialect/postgres.js</tspan>
+<tspan x="10" y="186"> 10.  2017-04-24 17:51:11 +0000     5508 bytes  lib/dialect/sqlite.js</tspan>
+<tspan x="10" y="202"> 11.  2017-04-24 17:51:11 +0000     1730 bytes  lib/functions.js</tspan>
+<tspan x="10" y="218"> 12.  2017-04-24 17:51:11 +0000     2312 bytes  lib/index.js</tspan>
+<tspan x="10" y="234"> 13.  2017-04-24 17:51:11 +0000     1158 bytes  lib/joiner.js</tspan>
+<tspan x="10" y="250"> 14.  2017-04-24 17:51:11 +0000      103 bytes  lib/node/addColumn.js</tspan>
+<tspan x="10" y="266"> 15.  2017-04-24 17:51:11 +0000      543 bytes  lib/node/alias.js</tspan>
+<tspan x="10" y="282"> 16.  2017-04-24 17:51:11 +0000       98 bytes  lib/node/alter.js</tspan>
+<tspan x="10" y="298"> 17.  2017-04-24 17:51:11 +0000      659 bytes  lib/node/arrayCall.js</tspan>
+<tspan x="10" y="314"> 18.  2017-04-24 17:51:11 +0000      762 bytes  lib/node/at.js</tspan>
+<tspan x="10" y="330"> 19.  2017-04-24 17:51:11 +0000      837 bytes  lib/node/binary.js</tspan>
+<tspan x="10" y="346"> 20.  2017-04-24 17:51:11 +0000      100 bytes  lib/node/cascade.js</tspan>
+<tspan x="10" y="362"> 21.  2017-04-24 17:51:11 +0000      837 bytes  lib/node/case.js</tspan>
+<tspan x="10" y="378"> 22.  2017-04-24 17:51:11 +0000      781 bytes  lib/node/cast.js</tspan>
+<tspan x="10" y="394"> 23.  2017-04-24 17:51:11 +0000     1124 bytes  lib/node/column.js</tspan>
+<tspan x="10" y="410"> 24.  2017-04-24 17:51:11 +0000      216 bytes  lib/node/create.js</tspan>
+<tspan x="10" y="426"> 25.  2017-04-24 17:51:11 +0000     1245 bytes  lib/node/createIndex.js</tspan>
+<tspan x="10" y="442"> 26.  2017-04-24 17:51:11 +0000      210 bytes  lib/node/createView.js</tspan>
+<tspan x="10" y="458"> 27.  2017-04-24 17:51:11 +0000      121 bytes  lib/node/default.js</tspan>
+<tspan x="10" y="474"> 28.  2017-04-24 17:51:11 +0000       99 bytes  lib/node/delete.js</tspan>
+<tspan x="10" y="490"> 29.  2017-04-24 17:51:11 +0000      102 bytes  lib/node/distinct.js</tspan>
+<tspan x="10" y="506"> 30.  2017-04-24 17:51:11 +0000      105 bytes  lib/node/distinctOn.js</tspan>
+<tspan x="10" y="522"> 31.  2017-04-24 17:51:11 +0000      178 bytes  lib/node/drop.js</tspan>
+<tspan x="10" y="538"> 32.  2017-04-24 17:51:11 +0000      104 bytes  lib/node/dropColumn.js</tspan>
+<tspan x="10" y="554"> 33.  2017-04-24 17:51:11 +0000      937 bytes  lib/node/dropIndex.js</tspan>
+<tspan x="10" y="570"> 34.  2017-04-24 17:51:11 +0000      102 bytes  lib/node/forShare.js</tspan>
+<tspan x="10" y="586"> 35.  2017-04-24 17:51:11 +0000      103 bytes  lib/node/forUpdate.js</tspan>
+<tspan x="10" y="602"> 36.  2017-04-24 17:51:11 +0000      449 bytes  lib/node/foreignKey.js</tspan>
+<tspan x="10" y="618"> 37.  2017-04-24 17:51:11 +0000      115 bytes  lib/node/from.js</tspan>
+<tspan x="10" y="634"> 38.  2017-04-24 17:51:11 +0000      674 bytes  lib/node/functionCall.js</tspan>
+<tspan x="10" y="650"> 39.  2017-04-24 17:51:11 +0000      101 bytes  lib/node/groupBy.js</tspan>
+<tspan x="10" y="666"> 40.  2017-04-24 17:51:11 +0000       99 bytes  lib/node/having.js</tspan>
+<tspan x="10" y="682"> 41.  2017-04-24 17:51:11 +0000      102 bytes  lib/node/ifExists.js</tspan>
+<tspan x="10" y="698"> 42.  2017-04-24 17:51:11 +0000      106 bytes  lib/node/ifNotExists.js</tspan>
+<tspan x="10" y="714"> 43.  2017-04-24 17:51:11 +0000      780 bytes  lib/node/in.js</tspan>
+<tspan x="10" y="730"> 44.  2017-04-24 17:51:11 +0000     2782 bytes  lib/node/index.js</tspan>
+<tspan x="10" y="746"> 45.  2017-04-24 17:51:11 +0000      213 bytes  lib/node/indexes.js</tspan>
+<tspan x="10" y="762"> 46.  2017-04-24 17:51:11 +0000     1867 bytes  lib/node/insert.js</tspan>
+<tspan x="10" y="778"> 47.  2017-04-24 17:51:11 +0000      487 bytes  lib/node/interval.js</tspan>
+<tspan x="10" y="794"> 48.  2017-04-24 17:51:11 +0000      569 bytes  lib/node/join.js</tspan>
+<tspan x="10" y="810"> 49.  2017-04-24 17:51:11 +0000      282 bytes  lib/node/literal.js</tspan>
+<tspan x="10" y="826"> 50.  2017-04-24 17:51:11 +0000      796 bytes  lib/node/notIn.js</tspan>
+<tspan x="10" y="842"> 51.  2017-04-24 17:51:11 +0000      103 bytes  lib/node/onConflict.js</tspan>
+<tspan x="10" y="858"> 52.  2017-04-24 17:51:11 +0000      104 bytes  lib/node/onDuplicate.js</tspan>
+<tspan x="10" y="874"> 53.  2017-04-24 17:51:11 +0000      102 bytes  lib/node/orIgnore.js</tspan>
+<tspan x="10" y="890"> 54.  2017-04-24 17:51:11 +0000      101 bytes  lib/node/orderBy.js</tspan>
+<tspan x="10" y="906"> 55.  2017-04-24 17:51:11 +0000      407 bytes  lib/node/orderByValue.js</tspan>
+<tspan x="10" y="922"> 56.  2017-04-24 17:51:11 +0000      565 bytes  lib/node/parameter.js</tspan>
+<tspan x="10" y="938"> 57.  2017-04-24 17:51:11 +0000      826 bytes  lib/node/postfixUnary.js</tspan>
+<tspan x="10" y="954"> 58.  2017-04-24 17:51:11 +0000      821 bytes  lib/node/prefixUnary.js</tspan>
+<tspan x="10" y="970"> 59.  2017-04-24 17:51:11 +0000    13688 bytes  lib/node/query.js</tspan>
+<tspan x="10" y="986"> 60.  2017-04-24 17:51:11 +0000       99 bytes  lib/node/rename.js</tspan>
+<tspan x="10" y="1002"> 61.  2017-04-24 17:51:11 +0000      106 bytes  lib/node/renameColumn.js</tspan>
+<tspan x="10" y="1018"> 62.  2017-04-24 17:51:11 +0000      101 bytes  lib/node/restrict.js</tspan>
+<tspan x="10" y="1034"> 63.  2017-04-24 17:51:11 +0000      102 bytes  lib/node/returning.js</tspan>
+<tspan x="10" y="1050"> 64.  2017-04-24 17:51:11 +0000      402 bytes  lib/node/select.js</tspan>
+<tspan x="10" y="1066"> 65.  2017-04-24 17:51:11 +0000      802 bytes  lib/node/slice.js</tspan>
+<tspan x="10" y="1082"> 66.  2017-04-24 17:51:11 +0000      180 bytes  lib/node/table.js</tspan>
+<tspan x="10" y="1098"> 67.  2017-04-24 17:51:11 +0000      914 bytes  lib/node/ternary.js</tspan>
+<tspan x="10" y="1114"> 68.  2017-04-24 17:51:11 +0000      177 bytes  lib/node/text.js</tspan>
+<tspan x="10" y="1130"> 69.  2017-04-24 17:51:11 +0000      182 bytes  lib/node/truncate.js</tspan>
+<tspan x="10" y="1146"> 70.  2017-04-24 17:51:11 +0000       99 bytes  lib/node/update.js</tspan>
+<tspan x="10" y="1162"> 71.  2017-04-24 17:51:11 +0000     4890 bytes  lib/node/valueExpression.js</tspan>
+<tspan x="10" y="1178"> 72.  2017-04-24 17:51:11 +0000     1754 bytes  lib/node/where.js</tspan>
+<tspan x="10" y="1194"> 73.  2017-04-24 17:51:11 +0000     7144 bytes  lib/table.js</tspan>
+<tspan x="10" y="1210"> 74.  2017-04-24 17:51:11 +0000     2187 bytes  package.json</tspan>
+<tspan x="10" y="1226"> 75.  2017-04-24 17:51:11 +0000      444 bytes  runtests.js</tspan>
+<tspan x="10" y="1242"> 76.  2017-04-24 17:51:11 +0000     1868 bytes  test/binary-clause-tests.js</tspan>
+<tspan x="10" y="1258"> 77.  2017-04-24 17:51:11 +0000      641 bytes  test/clause-definition.js</tspan>
+<tspan x="10" y="1274"> 78.  2017-04-24 17:51:11 +0000     5280 bytes  test/column-tests.js</tspan>
+<tspan x="10" y="1290"> 79.  2017-04-24 17:51:11 +0000    15251 bytes  test/dialects/aggregate-tests.js</tspan>
+<tspan x="10" y="1306"> 80.  2017-04-24 17:51:11 +0000     5582 bytes  test/dialects/alias-tests.js</tspan>
+<tspan x="10" y="1322"> 81.  2017-04-24 17:51:11 +0000    10458 bytes  test/dialects/alter-table-tests.js</tspan>
+<tspan x="10" y="1338"> 82.  2017-04-24 17:51:11 +0000     2306 bytes  test/dialects/array-tests.js</tspan>
+<tspan x="10" y="1354"> 83.  2017-04-24 17:51:11 +0000     5135 bytes  test/dialects/binary-clause-tests.js</tspan>
+<tspan x="10" y="1370"> 84.  2017-04-24 17:51:11 +0000    12115 bytes  test/dialects/case-tests.js</tspan>
+<tspan x="10" y="1386"> 85.  2017-04-24 17:51:11 +0000    13433 bytes  test/dialects/cast-tests.js</tspan>
+<tspan x="10" y="1402"> 86.  2017-04-24 17:51:11 +0000     5169 bytes  test/dialects/clause-ordering-tests.js</tspan>
+<tspan x="10" y="1418"> 87.  2017-04-24 17:51:11 +0000    25060 bytes  test/dialects/create-table-tests.js</tspan>
+<tspan x="10" y="1434"> 88.  2017-04-24 17:51:11 +0000     2763 bytes  test/dialects/create-view-tests.js</tspan>
+<tspan x="10" y="1450"> 89.  2017-04-24 17:51:11 +0000     7877 bytes  test/dialects/date-tests.js</tspan>
+<tspan x="10" y="1466"> 90.  2017-04-24 17:51:11 +0000     5798 bytes  test/dialects/delete-tests.js</tspan>
+<tspan x="10" y="1482"> 91.  2017-04-24 17:51:11 +0000      648 bytes  test/dialects/distinct-on-tests.js</tspan>
+<tspan x="10" y="1498"> 92.  2017-04-24 17:51:11 +0000     3998 bytes  test/dialects/distinct-tests.js</tspan>
+<tspan x="10" y="1514"> 93.  2017-04-24 17:51:11 +0000     2372 bytes  test/dialects/drop-table-tests.js</tspan>
+<tspan x="10" y="1530"> 94.  2017-04-24 17:51:11 +0000      785 bytes  test/dialects/for-share-tests.js</tspan>
+<tspan x="10" y="1546"> 95.  2017-04-24 17:51:11 +0000     1207 bytes  test/dialects/for-update-tests.js</tspan>
+<tspan x="10" y="1562"> 96.  2017-04-24 17:51:11 +0000     2673 bytes  test/dialects/from-clause-tests.js</tspan>
+<tspan x="10" y="1578"> 97.  2017-04-24 17:51:11 +0000     2437 bytes  test/dialects/function-tests.js</tspan>
+<tspan x="10" y="1594"> 98.  2017-04-24 17:51:11 +0000     5042 bytes  test/dialects/group-by-tests.js</tspan>
+<tspan x="10" y="1610"> 99.  2017-04-24 17:51:11 +0000     5797 bytes  test/dialects/having-tests.js</tspan>
+<tspan x="10" y="1626">100.  2017-04-24 17:51:11 +0000      747 bytes  test/dialects/hstore-tests.js</tspan>
+<tspan x="10" y="1642">101.  2017-04-24 17:51:11 +0000     1753 bytes  test/dialects/ilike-tests.js</tspan>
+<tspan x="10" y="1658">102.  2017-04-24 17:51:11 +0000     6643 bytes  test/dialects/in-clause-tests.js</tspan>
+<tspan x="10" y="1674">103.  2017-04-24 17:51:11 +0000       14 bytes  test/dialects/index.js</tspan>
+<tspan x="10" y="1690">104.  2017-04-24 17:51:11 +0000     7771 bytes  test/dialects/indexes-tests.js</tspan>
+<tspan x="10" y="1706">105.  2017-04-24 17:51:11 +0000    35049 bytes  test/dialects/insert-tests.js</tspan>
+<tspan x="10" y="1722">106.  2017-04-24 17:51:11 +0000    10660 bytes  test/dialects/join-tests.js</tspan>
+<tspan x="10" y="1738">107.  2017-04-24 17:51:11 +0000     3208 bytes  test/dialects/join-to-tests.js</tspan>
+<tspan x="10" y="1754">108.  2017-04-24 17:51:11 +0000     1220 bytes  test/dialects/json-tests.js</tspan>
+<tspan x="10" y="1770">109.  2017-04-24 17:51:11 +0000     4725 bytes  test/dialects/limit-and-offset-tests.js</tspan>
+<tspan x="10" y="1786">110.  2017-04-24 17:51:11 +0000     3327 bytes  test/dialects/literal-tests.js</tspan>
+<tspan x="10" y="1802">111.  2017-04-24 17:51:11 +0000     2273 bytes  test/dialects/matches-test.js</tspan>
+<tspan x="10" y="1818">112.  2017-04-24 17:51:11 +0000     5852 bytes  test/dialects/namespace-tests.js</tspan>
+<tspan x="10" y="1834">113.  2017-04-24 17:51:11 +0000     6944 bytes  test/dialects/not-in-clause-tests.js</tspan>
+<tspan x="10" y="1850">114.  2017-04-24 17:51:11 +0000    14657 bytes  test/dialects/order-tests.js</tspan>
+<tspan x="10" y="1866">115.  2017-04-24 17:51:11 +0000     1156 bytes  test/dialects/regex-tests.js</tspan>
+<tspan x="10" y="1882">116.  2017-04-24 17:51:11 +0000      556 bytes  test/dialects/returning-tests.js</tspan>
+<tspan x="10" y="1898">117.  2017-04-24 17:51:11 +0000     7890 bytes  test/dialects/schema-tests.js</tspan>
+<tspan x="10" y="1914">118.  2017-04-24 17:51:11 +0000    14940 bytes  test/dialects/select-tests.js</tspan>
+<tspan x="10" y="1930">119.  2017-04-24 17:51:11 +0000     5659 bytes  test/dialects/shortcut-tests.js</tspan>
+<tspan x="10" y="1946">120.  2017-04-24 17:51:11 +0000     1241 bytes  test/dialects/subfield-tests.js</tspan>
+<tspan x="10" y="1962">121.  2017-04-24 17:51:11 +0000    12090 bytes  test/dialects/subquery-tests.js</tspan>
+<tspan x="10" y="1978">122.  2017-04-24 17:51:11 +0000     4077 bytes  test/dialects/support.js</tspan>
+<tspan x="10" y="1994">123.  2017-04-24 17:51:11 +0000    27208 bytes  test/dialects/table-tests.js</tspan>
+<tspan x="10" y="2010">124.  2017-04-24 17:51:11 +0000     3440 bytes  test/dialects/ternary-clause-tests.js</tspan>
+<tspan x="10" y="2026">125.  2017-04-24 17:51:11 +0000     4815 bytes  test/dialects/tostring-tests.js</tspan>
+<tspan x="10" y="2042">126.  2017-04-24 17:51:11 +0000      586 bytes  test/dialects/truncate-table-tests.js</tspan>
+<tspan x="10" y="2058">127.  2017-04-24 17:51:11 +0000     2847 bytes  test/dialects/unary-clause-tests.js</tspan>
+<tspan x="10" y="2074">128.  2017-04-24 17:51:11 +0000     8616 bytes  test/dialects/update-tests.js</tspan>
+<tspan x="10" y="2090">129.  2017-04-24 17:51:11 +0000     7612 bytes  test/dialects/value-expression-tests.js</tspan>
+<tspan x="10" y="2106">130.  2017-04-24 17:51:11 +0000     8234 bytes  test/dialects/where-clause-tests.js</tspan>
+<tspan x="10" y="2122">131.  2017-04-24 17:51:11 +0000     3294 bytes  test/function-tests.js</tspan>
+<tspan x="10" y="2138">132.  2017-04-24 17:51:11 +0000     9397 bytes  test/index-tests.js</tspan>
+<tspan x="10" y="2154">133.  2017-04-24 17:51:11 +0000      400 bytes  test/index.js</tspan>
+<tspan x="10" y="2170">134.  2017-04-24 17:51:11 +0000       24 bytes  test/mocha.opts</tspan>
+<tspan x="10" y="2186">135.  2017-04-24 17:51:11 +0000      335 bytes  test/select-tests.js</tspan>
+<tspan x="10" y="2202">136.  2017-04-24 17:51:11 +0000     7627 bytes  test/table-tests.js</tspan>
+<tspan x="10" y="2218">137.  2017-04-24 17:51:11 +0000      318 bytes  test/ternary-clause-tests.js</tspan>
+<tspan x="10" y="2234">138.  2017-04-24 17:51:11 +0000      318 bytes  test/unary-clause-tests.js</tspan>
+<tspan x="10" y="2250">139.  2017-04-24 17:51:11 +0000      574 bytes  test/value-expression-tests.js</tspan>
 </text>
 </svg>
