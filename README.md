@@ -1,4 +1,7 @@
-# api documentation for  [sql (v0.75.0)](https://github.com/brianc/node-sql)  [![npm package](https://img.shields.io/npm/v/npmdoc-sql.svg?style=flat-square)](https://www.npmjs.org/package/npmdoc-sql) [![travis-ci.org build-status](https://api.travis-ci.org/npmdoc/node-npmdoc-sql.svg)](https://travis-ci.org/npmdoc/node-npmdoc-sql)
+# npmdoc-sql
+
+#### api documentation for  [sql (v0.75.0)](https://github.com/brianc/node-sql)  [![npm package](https://img.shields.io/npm/v/npmdoc-sql.svg?style=flat-square)](https://www.npmjs.org/package/npmdoc-sql) [![travis-ci.org build-status](https://api.travis-ci.org/npmdoc/node-npmdoc-sql.svg)](https://travis-ci.org/npmdoc/node-npmdoc-sql)
+
 #### sql builder
 
 [![NPM](https://nodei.co/npm/sql.png?downloads=true&downloadRank=true&stars=true)](https://www.npmjs.com/package/sql)
@@ -61,7 +64,8 @@
         "posttest": "jshint lib test",
         "test": "mocha"
     },
-    "version": "0.75.0"
+    "version": "0.75.0",
+    "bin": {}
 }
 ```
 
